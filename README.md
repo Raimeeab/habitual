@@ -1,5 +1,5 @@
 <!-- Add badges -->
-# Habitual➿
+# Habitual
 ---
 
 ## Table of Content 
@@ -16,6 +16,7 @@
 
 <a name="description"></a>
 ## 📝 Description
+This is a habit tracker application that allows users to add habits, set frequency and log completed habits everyday. 
 
 Link to the [app]()
 
@@ -24,16 +25,24 @@ Link to the [app]()
 <a name="user"></a>
 ## 🕹 User-story
 `As a user,` <br>
-`WHEN I am create an account,` <br>
-`THEN I am able to create a new event and view previous events made.`<br>
-`WHEN I create an account,` <br>
-`THEN I am prompted with questions regarding my event.` <br>
-`WHEN I complete the prompts,` <br>
-`THEN I am presented with potential venues and vendors depending on my budget. `<br>
-`WHEN I click on previous events,` <br>
-`THEN I can see all my booked in details for that event.` <br>
-`WHEN I click on vendors or venues,` <br> 
-`THEN I am able to see all the vendors and venues available for hire in the database.` <br>
+`WHEN I start the app, I am prompted to login or create an account.` \
+`WHEN I create an account,` \
+`THEN I am asked to provide a username, email and password.` \
+`WHEN I am successfully logged in,` \
+`THEN I am taken to the habits page.` \
+`WHEN I click on add habit, ` \
+`THEN I am prompted to clarify if I want to make or break this habit, how many times a week I would like to complete this habit, & write a small description of how this habit will better my daily life.` \
+`WHEN I set up my habit` \
+`THEN I am presented with a list of my habits of current day` \
+`WHEN I mark a habit as complete,` \
+`THEN complete button turns green and will be disabled.` \
+`WHEN I click on options button for habit,` \
+`THEN I am presented with skip, edit, view progress` \
+`WHEN I click on edit,` \
+`THEN I am able to edit habit name and frequency.`
+`WHEN I click on the today button,` \
+`THEN I view my previous logs. If habit is complete, habit will be green; if habit is skipped it will be red` \
+
 
 <a name="technologies"></a>
 ## 🕹 Technologies used 
@@ -45,16 +54,6 @@ Link to the [app]()
 1. Git clone this repository onto your local machine and navigate to the file on your terminal. *This can also be done by opening the file on Visual Studios and running it through the intergated terminal.*
 
 ![git-clone]()
-
-2. In order for the app to function correctly, ensure you have the latest or most stable version of Node.js and that you've entered your MySQL details (user & password) into the `.env.EXAMPLE` and rename the file to `.env`.
-
-![env-example]()
-
-3. Create the schema from the MySQL shell by running: 
-    - `mysql -u root -p` (enter password if/when prompted)
-    - `source db/schema.sql`
- 
-![sql-example]()
 
 4. Run `npm install` to download all the required dependencies and seeds
 
