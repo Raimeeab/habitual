@@ -16,6 +16,7 @@ const habitSchema = new Schema({
   goal: {
     // Brief description of how habit betters their life
     type: String,
+    // Journaling is optional
     required: false,
   },
   complete: {
@@ -27,6 +28,5 @@ const habitSchema = new Schema({
   },
 });
 
-const Habit = model('habit', habitSchema); 
 
-model.exports = Habit; 
+model.exports = habitSchema; 
