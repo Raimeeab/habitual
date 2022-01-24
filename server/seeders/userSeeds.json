@@ -2,51 +2,52 @@
     {
         "username": "Brian Kernighan",
         "email": "bkernighan@testusers.com",
-        "password": "password01"
+        "password": "password01",
+        "habits": [
+            {
+                "name": "Go for a run",
+                "frequency": 2,
+                "journal": "Running will imporve my physical wellbeing",
+                "complete": false
+            },
+            {
+                "name": "Skin and dental care routine",
+                "frequency": 7,
+                "journal": "This will help me ensure I have some self-care in my daily life",
+                "complete": false
+            },
+            {
+                "name": "Spend time with my friends",
+                "frequency": 1,
+                "journal": "I want to improve my social life",
+                "complete": false
+            }
+        ]
     },
     {
         "username": "Max Kanat-Alexander",
         "email": "mkanatalexander@testusers.com",
-        "password": "password02"
+        "password": "password02", 
+        "habits": [
+            {
+                "name": "Make my bed",
+                "frequency": 7,
+                "journal": null,
+                "complete": false
+            }
+        ]
     },
     {
         "username": "Amiko",
         "email": "amiko@testusers.com",
-        "password": "password03"
-    },
-    {
-        "username": "Kent Beck",
-        "email": "kbeck@testusers.com",
-        "password": "password04"
-    },
-    {
-        "username": "Edward V. Berard",
-        "email": "evberard@testusers.com",
-        "password": "password05"
-    },
-    {
-        "username": "Alan Kay",
-        "email": "akay@testusers.com",
-        "password": "password06"
-    },
-    {
-        "username": "C.A.R. Hoare",
-        "email": "choare@testusers.com",
-        "password": "password07"
-    },
-    {
-        "username": "David Thomas",
-        "email": "dthomas@testusers.com",
-        "password": "password08"
-    },
-    {
-        "username": "Donald Knuth",
-        "email": "dknuth@testusers.com",
-        "password": "password09"
-    },
-    {
-        "username": "Lernantino",
-        "email": "lernantino@testusers.com",
-        "password": "password10"
+        "password": "password03", 
+        "habits":  [
+            {
+                "name": "Meditate",
+                "frequency": 7,
+                "journal": "This will help me reduce my anxiety",
+                "complete": false
+            }
+        ]
     }
 ]

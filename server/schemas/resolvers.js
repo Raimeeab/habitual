@@ -2,20 +2,24 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
+// TODO: query to see progress for habit (completed/ skipped)
+// TODO: Mutation to addHabit for user
+// TODO: Mutation to updateHabit for user
+
 const resolvers = {
   Query: {
     // Find all users
-    users: async () => {
-      return User.find();
-    },
+    // users: async () => {
+    //   return User.find().populate('habits');
+    // },
 
-    // Find one user
-    user: async () => {
-      return User.findOne({ _id: userId });
-    },
+    // Find one user and all their habits 
+    // user: async () => {
+    //   return User.findOne({ _id: ID });
+    // },
 
     // Context retrieves the logged in user without specifically searching for them 
-    me: async (parent, args, context) => {
+    user: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
