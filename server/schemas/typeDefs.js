@@ -15,18 +15,18 @@ const typeDefs = gql`
     user: User
   }
 
-  type Habit {
-    _id: ID
-    name: String 
-    frequency: Int 
-    journal: String
-    complete: Boolean
-    time: String
-  }
-
   type Query {
     users: [User]
   }
 
 `;
 module.exports = typeDefs;
+
+// type Habit {
+//   _id: ID
+//   name: String 
+//   frequency: Int 
+//   journal: String
+//   complete: Boolean
+//   time: String
+// }

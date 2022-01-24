@@ -23,6 +23,7 @@ const habitSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    // completedHabits: [completedHabitsSchema]
     // time: {
     //   type: Date,
     // },

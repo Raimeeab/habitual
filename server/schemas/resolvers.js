@@ -25,7 +25,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You must login to access habits.");
     },
-
     Mutation: {
       // Create user 
       addUser: async (parent, {username, email, password}) => {
