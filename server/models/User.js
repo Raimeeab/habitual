@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { habitSchema } = require("./Habit");
+// const { habitSchema } = require("./Habit");
 const bycrpt = require("bycrpt");
 
 const userSchema = new Schema(
@@ -21,7 +21,7 @@ const userSchema = new Schema(
       minlength: 6,
     },
     // setHabits to be an array of data that adheres to the habitsSchema
-    setHabits: [habitSchema],
+    // setHabits: [habitSchema],
   },
   // set this to use virtual below
   {

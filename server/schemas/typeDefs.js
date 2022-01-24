@@ -12,20 +12,17 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
-  }
-
-  type Habit {
-    _id: ID
-    name: String
-    frequency: Int
-    goal: String
-    createdAt: String
   }
 
   type Auth {
     token: ID!
     user: User
+  }
+
+  type Query {
+    users: [User]!
+    user(userId: ID!): User
+    me: User
   }
 `;
 module.exports = typeDefs;
