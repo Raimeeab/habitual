@@ -1,7 +1,6 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const habitSchema = new Schema({
-  timestamps: true,
   name: {
     type: String,
     required: true,
@@ -28,5 +27,4 @@ const habitSchema = new Schema({
   },
 });
 
-
-model.exports = habitSchema; 
+model.exports = habitSchema;

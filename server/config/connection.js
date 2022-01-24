@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
-require('dotenv').config();
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-console.log(process.env) // !!TODO: remove before deployment
+console.log(process.env); // !!TODO: remove before deployment
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/habits', {
-    useNewUrlParser: true,
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/habits", {
+  useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
