@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-// const { habitSchema } = require("./Habit");
+const { Habit } = require("./Habit");
 const bycrpt = require("bycrpt");
 
 const userSchema = new Schema(
@@ -20,8 +20,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 6,
     },
-    // setHabits to be an array of data that adheres to the habitsSchema
-    // setHabits: [habitSchema],
+    // Habits to be an array of data that adheres to the Habit model
+    Habits: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Habit",
+      },
+    ],
   },
   // set this to use virtual below
   {
@@ -36,15 +41,15 @@ userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bycrpt.hash(this.password, saltRounds);
-  };
+  }
 
   next();
 });
 
-// Compare the incoming password with the hashed password 
-userSchema.methods.isCorrectPassword = async function(password) { 
-  return bycrpt.compare(password, this.password); 
-}; 
+// Compare the incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bycrpt.compare(password, this.password);
+};
 
 const User = model("user", userSchema);
 

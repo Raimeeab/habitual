@@ -12,6 +12,8 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    # Querable field to retieve an array of habit objects
+    habits: [Habit]
   }
 
   type Auth {
@@ -19,10 +21,18 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {
-    users: [User]!
-    user(userId: ID!): User
-    me: User
+  type Habit {
+    _id: ID
+    name: String 
+    frequency: Int 
+    journal: String
+    complete: Boolean
+    time: Date
   }
+
+  type Query {
+    users: [User]
+  }
+
 `;
 module.exports = typeDefs;

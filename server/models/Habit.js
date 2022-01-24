@@ -12,8 +12,8 @@ const habitSchema = new Schema({
     min: 1,
     max: 7,
   },
-  goal: {
-    // Brief description of how habit betters their life
+  journal: {
+    // User can input notes about their habits
     type: String,
     // Journaling is optional
     required: false,
@@ -27,4 +27,6 @@ const habitSchema = new Schema({
   },
 });
 
-model.exports = habitSchema;
+const Habit = model('Habit', habitSchema)
+
+model.exports = Habit;

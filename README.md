@@ -1,4 +1,4 @@
-<!-- Add badges -->
+<img alt="GitHub Followers" src="https://img.shields.io/github/followers/Raimeeab"> <img alt="GitHub License" src="https://img.shields.io/apm/l/vim-mode"> <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Raimeeab/habitual"> <img alt="GitHub Commit Activity" src="https://img.shields.io/github/commit-activity/w/Raimeeab/habitual">
 # Habitual
 ---
 
