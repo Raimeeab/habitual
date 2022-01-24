@@ -1,8 +1,6 @@
 const db = require('../config/connection');
-const { User, Habit } = require("../models");
+const { User } = require("../models");
 const userData = require ("./userSeeds.json");
-
-
 
 db.once('open', async () => {
     try {
@@ -10,10 +8,10 @@ db.once('open', async () => {
 
         // Delete existing data 
         await User.deleteMany({}); 
+        console.log("Seeders successfully deleted");
 
         // Insert Seed data to respective model 
-        await User.insertMany(userData); 
-        console.log("Seeder data being inserted successfully"); 
+        await User.create(userData); 
 
         console.log("Seeders successfully created"); 
         process.exit(0);

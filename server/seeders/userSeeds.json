@@ -15,12 +15,6 @@
                 "frequency": 7,
                 "journal": "This will help me ensure I have some self-care in my daily life",
                 "complete": false
-            },
-            {
-                "name": "Spend time with my friends",
-                "frequency": 1,
-                "journal": "I want to improve my social life",
-                "complete": false
             }
         ]
     },
@@ -33,6 +27,12 @@
                 "name": "Make my bed",
                 "frequency": 7,
                 "journal": null,
+                "complete": false
+            },
+            {
+                "name": "Spend time with my friends",
+                "frequency": 1,
+                "journal": "I want to improve my social life",
                 "complete": false
             }
         ]
