@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const habitSchema = new Schema(
   {
@@ -31,4 +31,4 @@ const habitSchema = new Schema(
   { timestamps: { createdAt: "created_at" } }
 );
 
-model.exports = habitSchema;
+module.exports = habitSchema;
