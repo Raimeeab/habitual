@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const habitSchema = require("./Habit");
 const bcrypt = require("bcrypt");
+const { UniqueTypeNamesRule } = require("graphql");
 
 const userSchema = new Schema(
   {
@@ -8,6 +9,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true
     },
     email: {
       type: String,
