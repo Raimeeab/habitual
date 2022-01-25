@@ -23,7 +23,7 @@ const userSchema = new Schema(
     // Habits to be an array of data that adheres to the Habit model
     habits: [habitSchema],
   },
-  { timestamps: { createdAt: "created_at" } },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } },
   // set this to use virtual below
   {
     toJSON: {

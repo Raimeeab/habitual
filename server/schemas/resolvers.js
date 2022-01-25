@@ -9,9 +9,9 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     // Find all users
-    // users: async () => {
-    //   return User.find().populate('habits');
-    // },
+    users: async () => {
+      return User.find();
+    },
 
     // Find one user and all their habits
     // user: async () => {
@@ -21,7 +21,7 @@ const resolvers = {
     // Context retrieves the logged in user without specifically searching for them
     user: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id }).select("-__v -password");
       }
       throw new AuthenticationError("You must login to access habits.");
     },
@@ -40,7 +40,7 @@ const resolvers = {
 
         // If email or password is incorrect, throw the same error
         if (!user || !correctPw) {
-          throw new AuthenticationError("Incorrect login credientials");
+          throw new AuthenticationError("Incorrect login credentials");
         }; 
 
         // When user is successfully logged in:

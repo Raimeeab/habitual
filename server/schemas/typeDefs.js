@@ -6,17 +6,29 @@ const typeDefs = gql`
     username: String
     email: String
     # Querable field to retieve an array of habit objects
-    # habits: [Habit]
+    habits: [Habit]
   }
 
-  # TODO: test if Authentication works 
+  type Habit {
+    habitId: String! 
+    name: String!
+    frequency: Int!
+    journal: String
+    # completedHabits: [CompletedHabits]
+  }
+
   type Auth {
     token: ID!
     user: User
   }
 
   type Query {
-    users: [User]
+    user: User
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email:String!, password: String!): Auth
   }
 
 `;
