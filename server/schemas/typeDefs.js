@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Habit {
-    habitId: String! 
+    habitId: String!
     name: String!
     frequency: Int!
     journal: String
@@ -23,21 +23,20 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    users: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email:String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
   }
-
 `;
 module.exports = typeDefs;
 
 // type Habit {
 //   _id: ID
-//   name: String 
-//   frequency: Int 
+//   name: String
+//   frequency: Int
 //   journal: String
 //   complete: Boolean
 //   time: String

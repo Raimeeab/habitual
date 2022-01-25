@@ -7,49 +7,42 @@
             {
                 "name": "Go for a run",
                 "frequency": 2,
-                "journal": "Running will imporve my physical wellbeing",
-                "complete": false
+                "journal": "Running will imporve my physical wellbeing"
             },
             {
                 "name": "Skin and dental care routine",
                 "frequency": 7,
-                "journal": "This will help me ensure I have some self-care in my daily life",
-                "complete": false
+                "journal": "This will help me ensure I have some self-care in my daily life"
             }
-        ], 
-        "completedHabits": [
-            
-        ]
+        ],
+        "completedHabits": []
     },
     {
         "username": "Max Kanat-Alexander",
         "email": "mkanatalexander@testusers.com",
-        "password": "password02", 
+        "password": "password02",
         "habits": [
             {
                 "name": "Make my bed",
                 "frequency": 7,
-                "journal": null,
-                "complete": false
+                "journal": null
             },
             {
                 "name": "Spend time with my friends",
                 "frequency": 1,
-                "journal": "I want to improve my social life",
-                "complete": false
+                "journal": "I want to improve my social life"
             }
         ]
     },
     {
         "username": "Amiko",
         "email": "amiko@testusers.com",
-        "password": "password03", 
-        "habits":  [
+        "password": "password03",
+        "habits": [
             {
                 "name": "Meditate",
                 "frequency": 7,
-                "journal": "This will help me reduce my anxiety",
-                "complete": false
+                "journal": "This will help me reduce my anxiety"
             }
         ]
     }

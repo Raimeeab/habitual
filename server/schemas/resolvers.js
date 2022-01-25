@@ -2,7 +2,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
-// TODO: query to see progress for habit (completed/ skipped)
+// TODO: Mutation to see progress for habit (completed/ skipped)
 // TODO: Mutation to addHabit for user
 // TODO: Mutation to updateHabit for user
 
@@ -10,7 +10,11 @@ const resolvers = {
   Query: {
     // Find all users
     users: async () => {
-      return User.find();
+      console.log("users function running");
+      const userData = await User.find().populate("habits");
+      console.log(userData);
+
+      return userData;
     },
 
     // Find one user and all their habits
@@ -19,12 +23,13 @@ const resolvers = {
     // },
 
     // Context retrieves the logged in user without specifically searching for them
-    user: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).select("-__v -password");
-      }
-      throw new AuthenticationError("You must login to access habits.");
-    },
+    // user: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).select("-__v -password");
+    //   }
+    //   throw new AuthenticationError("You must login to access habits.");
+    // },
+
     Mutation: {
       // Create user
       addUser: async (parent, { username, email, password }) => {
@@ -41,7 +46,7 @@ const resolvers = {
         // If email or password is incorrect, throw the same error
         if (!user || !correctPw) {
           throw new AuthenticationError("Incorrect login credentials");
-        }; 
+        }
 
         // When user is successfully logged in:
         const token = signToken(user);

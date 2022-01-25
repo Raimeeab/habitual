@@ -9,23 +9,7 @@ const completedHabitsSchema = new Schema({
     default: Date.now,
     // Format timestamp for habit completed
     get: (timestamp) => dateFormat(timestamp),
-  },
-  comment: [
-      {
-          commentText: {
-              type: String, 
-              required: false, 
-              minlength: 1,
-              maxlength: 280, 
-          }, 
-          createdAt: {
-            type: Date,
-            default: Date.now,
-            // Format timestamp for comment
-            get: (timestamp) => dateFormat(timestamp),
-          }
-      }
-  ]
+  }
 });
 
 module.exports = completedHabitsSchema;
