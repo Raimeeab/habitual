@@ -1,12 +1,16 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Habit {
+  type CompletedHabits { 
+    completedAt: String
+  }
+
+type Habit {
     habitId: ID
     name: String!
     frequency: Int!
     journal: String
-    # completedHabits: [CompletedHabits]
+    completedHabits: [CompletedHabits]
   }
 
   type User {
@@ -23,8 +27,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    userById: User
     users: [User]
+    habits: [Habit]
   }
 
   type Mutation {

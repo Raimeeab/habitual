@@ -6,7 +6,7 @@ const dateFormat = require("../utils/dateFormat");
 const completedHabitsSchema = new Schema({
   completedAt: {
     type: Date,
-    default: Date.now,
+    default: null,
     // Format timestamp for habit completed
     get: (timestamp) => dateFormat(timestamp),
   }

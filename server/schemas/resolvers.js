@@ -8,24 +8,30 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+
+    habits: async () => {
+      console.log("habits query being logged here"); 
+      const habitsData = await User.find("habits"); 
+    }, 
+
     // Find all users
     users: async () => {
       console.log("users function running");
-      const userData = await User.find().populate("habits");
+      const userData = await User.find({}).populate("habits");
       console.log(userData);
 
       return userData;
     },
 
     // Find one user and all their habits
-    // user: async () => {
+    // userById: async () => {
     //   return User.findOne({ _id: ID });
     // },
 
     // Context retrieves the logged in user without specifically searching for them
-    user: async (parent, args, context) => {
+    userById: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).select("-__v -password");
+        return User.findOne({ _id: context.user._id }).select("-__v -password").populate("habits").populate("completedHabits");
       }
       throw new AuthenticationError("You must login to access habits.");
     },

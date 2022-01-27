@@ -7,15 +7,24 @@
             {
                 "name": "Go for a run",
                 "frequency": 2,
-                "journal": "Running will imporve my physical wellbeing"
+                "journal": "Running will imporve my physical wellbeing",
+                "completedHabits": [
+                    {
+                        "completedAt": 1412180887
+                    }
+                ]
             },
             {
-                "name": "Skin and dental care routine",
+                "name": "Skin care routine",
                 "frequency": 7,
-                "journal": "This will help me ensure I have some self-care in my daily life"
+                "journal": "This will help me ensure I have some self-care in my daily life",
+                "completedHabits": [
+                    {
+                        "completedAt": 1357466469
+                    }
+                ]
             }
-        ],
-        "completedHabits": []
+        ]
     },
     {
         "username": "Max Kanat-Alexander",
@@ -25,12 +34,21 @@
             {
                 "name": "Make my bed",
                 "frequency": 7,
-                "journal": null
+                "journal": null,
+                "completedHabits": [
+                    {
+                        "completedAt": 1412180887
+                    },
+                    {
+                        "completedAt": 1357466440
+                    }
+                ]
             },
             {
                 "name": "Spend time with my friends",
                 "frequency": 1,
-                "journal": "I want to improve my social life"
+                "journal": "I want to improve my social life",
+                "completedHabits": []
             }
         ]
     },
@@ -42,7 +60,8 @@
             {
                 "name": "Meditate",
                 "frequency": 7,
-                "journal": "This will help me reduce my anxiety"
+                "journal": "This will help me reduce my anxiety",
+                "completedHabits": []
             }
         ]
     }
