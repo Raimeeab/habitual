@@ -1,6 +1,14 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type Habit {
+    habitId: ID
+    name: String!
+    frequency: Int!
+    journal: String
+    # completedHabits: [CompletedHabits]
+  }
+
   type User {
     _id: ID
     username: String
@@ -9,35 +17,19 @@ const typeDefs = gql`
     habits: [Habit]
   }
 
-  type Habit {
-    habitId: String!
-    name: String!
-    frequency: Int!
-    journal: String
-    # completedHabits: [CompletedHabits]
-  }
-
   type Auth {
     token: ID!
     user: User
   }
 
   type Query {
-    users: User
+    user: User
+    users: [User]
   }
 
   type Mutation {
-    login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 module.exports = typeDefs;
-
-// type Habit {
-//   _id: ID
-//   name: String
-//   frequency: Int
-//   journal: String
-//   complete: Boolean
-//   time: String
-// }
