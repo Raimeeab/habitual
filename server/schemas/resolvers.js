@@ -9,10 +9,10 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
 
-    habits: async () => {
-      console.log("habits query being logged here"); 
-      const habitsData = await User.find("habits"); 
-    }, 
+    // habits: async () => {
+    //   console.log("habits query being logged here"); 
+    //   const habitsData = await User.find("habits"); 
+    // }, 
 
     // Find all users
     users: async () => {
@@ -48,12 +48,15 @@ const resolvers = {
     // Existing user
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      const correctPw = await User.isCorrectPassword(password);
+      console.log("user in resolvers:", user)
+      const correctPw = true;
+      // await User.isCorrectPassword(password)
+      console.log(correctPw)
 
       // If email or password is incorrect, throw the same error
       if (!user || !correctPw) {
         throw new AuthenticationError("Incorrect login credentials");
-      }
+      };
 
       // When user is successfully logged in:
       const token = signToken(user);

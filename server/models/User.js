@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 const habitSchema = require("./Habit");
 const bcrypt = require("bcrypt");
-const { UniqueTypeNamesRule } = require("graphql");
 
 const userSchema = new Schema(
   {
