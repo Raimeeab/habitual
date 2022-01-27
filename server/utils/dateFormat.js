@@ -1,20 +1,20 @@
 const addDateSuffix = (date) => {
-    let dateStr = date.toString();
+    let dateToString = date.toString();
   
     // Get last char of date string
-    const lastChar = dateStr.charAt(dateStr.length - 1);
+    const lastChar = dateToString.charAt(dateToString.length - 1);
   
-    if (lastChar === '1' && dateStr !== '11') {
-      dateStr = `${dateStr}st`;
-    } else if (lastChar === '2' && dateStr !== '12') {
-      dateStr = `${dateStr}nd`;
-    } else if (lastChar === '3' && dateStr !== '13') {
-      dateStr = `${dateStr}rd`;
+    if (lastChar === '1' && dateToString !== '11') {
+      dateToString = `${dateToString}st`;
+    } else if (lastChar === '2' && dateToString !== '12') {
+      dateToString = `${dateToString}nd`;
+    } else if (lastChar === '3' && dateToString !== '13') {
+      dateToString = `${dateToString}rd`;
     } else {
-      dateStr = `${dateStr}th`;
+      dateToString = `${dateToString}th`;
     }
   
-    return dateStr;
+    return dateToString;
   };
   
   // function to format a timestamp, accepts the timestamp and an `options` object as parameters

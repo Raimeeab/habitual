@@ -1,9 +1,14 @@
-const { AuthenticationError } = require("apollo-server-express");
+const {
+  AuthenticationError,
+  UserInputError,
+} = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
+const { validateUserInput } = require("../utils/validators");
 
 // TODO: Mutation to see progress for habit (completed/ skipped)
 // TODO: Mutation to updateHabit for user
+// TODO: Mutation to create completedHabit for habit
 
 const resolvers = {
   Query: {
@@ -29,16 +34,36 @@ const resolvers = {
   },
   Mutation: {
     // Create new user
-    signUp: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
+    signUp: async (parent, { userInput }) => {
+      let { username, email, password, confirmPassword } = userInput;
 
+      // Use validators to ensure user input meets criteria 
+      const { valid, errors } = validateUserInput(
+        username,
+        email,
+        password,
+        confirmPassword
+      );
+      if (!valid) {
+        throw new UserInputError("Validation errors", { errors });
+      }; 
+
+      // let user = await User.findOne({ username }); 
+      // if (user) {
+      //   throw new UserInputError("Username already exists", {
+      //     errors:  {
+      //       username: "This username is taken"
+      //     }
+      //   }); 
+      // }; 
+
+      user = await User.create(userInput); 
+      const token = signToken(user);
       return { token, user };
     },
     // Existing user
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
-      console.log("user in resolvers:", user);
       const correctPw = await user.isCorrectPassword(password);
 
       console.log(correctPw);
@@ -52,8 +77,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addHabit: async (parent, { name, frequency, journal }, context) => {
-      let newHabit = { name, frequency, journal };
+    // Add habit to existing user
+    addHabit: async (parent, { newHabit }, context) => {
+       let { name, frequency, journal } = newHabit;
       // Auth user
       if (context.user) {
         // Get user info from context
@@ -68,15 +94,18 @@ const resolvers = {
             runValidators: true,
           }
         );
+        // TODO: User can't have same habit name entered twice
+
         if (!findUser) {
           return null;
         } else {
-          return findUser.habits.find((habit)=> {
-           return   habit.name === name;
+          // Retrieve habits array from user & return the new habit
+          return findUser.habits.find((habit) => {
+            return habit.name === name;
           });
         }
       } else {
-        throw new AuthenticationError("Y∏ou need to be logged in!");
+        throw new AuthenticationError("You must be logged in!");
       }
     },
   },

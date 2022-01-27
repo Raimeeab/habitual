@@ -32,9 +32,18 @@ const typeDefs = gql`
     users: [User]
   }
 
+  input UserInput { 
+    username: String!
+    email: String!
+    password: String!
+    confirmPassword: String!
+  }
+
   type Mutation {
-    signUp(username: String!, email: String!, password: String!): Auth
+    # User 
+    signUp(userInput: UserInput!): Auth
     login(username: String!, password: String!): Auth
+    # Habit 
     addHabit(name: String!, frequency: Int!, journal: String): Habit
   }
 `;
