@@ -8,8 +8,8 @@ const typeDefs = gql`
 
   # Embedded in User - holds a list of habits created by user
   type Habit {
-    name: String
-    frequency: Int
+    name: String!
+    frequency: Int!
     journal: String
     completedHabits: [CompletedHabits]
   }
@@ -45,6 +45,8 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     # Habit 
     addHabit(name: String!, frequency: Int!, journal: String): Habit
+    removeHabit(name: String!): Habit
+    updateHabit(name:String, frequency:Int): Habit
   }
 `;
 module.exports = typeDefs;

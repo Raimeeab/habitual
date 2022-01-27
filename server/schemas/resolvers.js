@@ -6,10 +6,6 @@ const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 const { validateUserInput } = require("../utils/validators");
 
-// TODO: Mutation to see progress for habit (completed/ skipped)
-// TODO: Mutation to updateHabit for user
-// TODO: Mutation to create completedHabit for habit
-
 const resolvers = {
   Query: {
     // Find all users
@@ -37,7 +33,7 @@ const resolvers = {
     signUp: async (parent, { userInput }) => {
       let { username, email, password, confirmPassword } = userInput;
 
-      // Use validators to ensure user input meets criteria 
+      // Use validators to ensure user input meets criteria
       const { valid, errors } = validateUserInput(
         username,
         email,
@@ -46,18 +42,18 @@ const resolvers = {
       );
       if (!valid) {
         throw new UserInputError("Validation errors", { errors });
-      }; 
+      }
 
-      // let user = await User.findOne({ username }); 
+      // let user = await User.findOne({ username });
       // if (user) {
       //   throw new UserInputError("Username already exists", {
       //     errors:  {
       //       username: "This username is taken"
       //     }
-      //   }); 
-      // }; 
+      //   });
+      // };
 
-      user = await User.create(userInput); 
+      user = await User.create(userInput);
       const token = signToken(user);
       return { token, user };
     },
@@ -79,7 +75,7 @@ const resolvers = {
     },
     // Add habit to existing user
     addHabit: async (parent, { newHabit }, context) => {
-       let { name, frequency, journal } = newHabit;
+      let { name, frequency, journal } = newHabit;
       // Auth user
       if (context.user) {
         // Get user info from context
@@ -108,6 +104,30 @@ const resolvers = {
         throw new AuthenticationError("You must be logged in!");
       }
     },
+    // TODO: Mutation to deleteHabit
+    removeHabit: async (parent, { habit }, context) => {
+      // TODO: If habit does not exist, throw an error
+      
+      if (context.user) {
+        return User.findOneAndDelete(
+          {
+            name: context.habits.name,
+          },
+          {
+            $pull: { habits: {
+              name: habit
+            } },
+          }, 
+          {
+            new: true, 
+            runValidators: true
+          }
+        );
+      }
+      throw new AuthenticationError("You must be logged in!"); 
+    },
+    // TODO: Mutation to updateHabit for user
+    // TODO: Mutation to create completedHabit for habit
   },
 };
 
