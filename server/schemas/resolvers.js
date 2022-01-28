@@ -87,11 +87,11 @@ const resolvers = {
           },
           {
             new: true,
+            runValidators: true,
           }
         );
         // TODO: User can't have same habit name entered twice
 
-        // If you user does not exist, return null
         if (!findUser) {
           return null;
         } else {
@@ -105,36 +105,24 @@ const resolvers = {
       }
     },
     // DELETE habit
-    removeHabit: async (parent, habitName, context) => {
+    removeHabit: async (parent,  habitId , context) => {
       // TODO: If habit does not exist, throw an error
-
+      
       if (context.user) {
-        const findUser = await User.findOneAndUpdate(
+        return User.findOneAndUpdate(
           {
             _id: context.user._id,
           },
           {
-            $pull: { habits: habitName },
-          },
-          {
-            new: true,
+            $pull: { habits: {
+              _id: habitId }},
           }
         );
-        console.log(findUser);
-        // return findUser;
-
-        // TODO: Fix return to display all habits in array,
-        //       not just the first one
-        return findUser.habits.find((habits) => {
-          return habits.name;
-        });
       }
-
-      throw new AuthenticationError("You must be logged in!");
+      throw new AuthenticationError("You must be logged in!"); 
     },
     // TODO: Mutation to updateHabit for user
-    
-    // TODO: Mutation to create completedHabit object for habit
+    // TODO: Mutation to create completedHabit for habit
   },
 };
 
