@@ -46,7 +46,7 @@ const typeDefs = gql`
     # Habit 
     addHabit(name: String!, frequency: Int!, journal: String): Habit
     removeHabit(name: String!): Habit
-    updateHabit(name:String, frequency:Int): Habit
+    # updateHabit(name:String, frequency:Int): Habit
   }
 `;
 module.exports = typeDefs;

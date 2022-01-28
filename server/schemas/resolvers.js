@@ -74,8 +74,8 @@ const resolvers = {
       return { token, user };
     },
     // Add habit to existing user
-    addHabit: async (parent, { newHabit }, context) => {
-      let { name, frequency, journal } = newHabit;
+    addHabit: async (parent, { name, frequency, journal }, context) => {
+      let newHabit = { name, frequency, journal };
       // Auth user
       if (context.user) {
         // Get user info from context
@@ -87,11 +87,11 @@ const resolvers = {
           },
           {
             new: true,
-            runValidators: true,
           }
         );
         // TODO: User can't have same habit name entered twice
 
+        // If you user does not exist, return null
         if (!findUser) {
           return null;
         } else {
@@ -104,30 +104,37 @@ const resolvers = {
         throw new AuthenticationError("You must be logged in!");
       }
     },
-    // TODO: Mutation to deleteHabit
-    removeHabit: async (parent, { habit }, context) => {
+    // DELETE habit
+    removeHabit: async (parent, habitName, context) => {
       // TODO: If habit does not exist, throw an error
-      
+
       if (context.user) {
-        return User.findOneAndDelete(
+        const findUser = await User.findOneAndUpdate(
           {
-            name: context.habits.name,
+            _id: context.user._id,
           },
           {
-            $pull: { habits: {
-              name: habit
-            } },
-          }, 
+            $pull: { habits: habitName },
+          },
           {
-            new: true, 
-            runValidators: true
+            new: true,
           }
         );
+        console.log(findUser);
+        // return findUser;
+
+        // TODO: Fix return to display all habits in array,
+        //       not just the first one
+        return findUser.habits.find((habits) => {
+          return habits.name;
+        });
       }
-      throw new AuthenticationError("You must be logged in!"); 
+
+      throw new AuthenticationError("You must be logged in!");
     },
     // TODO: Mutation to updateHabit for user
-    // TODO: Mutation to create completedHabit for habit
+    
+    // TODO: Mutation to create completedHabit object for habit
   },
 };
 
