@@ -105,23 +105,66 @@ const resolvers = {
       }
     },
     // DELETE habit
-    removeHabit: async (parent,  habitId , context) => {
+    removeHabit: async (parent, habitId, context) => {
       // TODO: If habit does not exist, throw an error
-      
+
       if (context.user) {
         return User.findOneAndUpdate(
           {
             _id: context.user._id,
           },
           {
-            $pull: { habits: {
-              _id: habitId }},
+            $pull: {
+              habits: {
+                _id: habitId,
+              },
+            },
           }
         );
       }
-      throw new AuthenticationError("You must be logged in!"); 
+      throw new AuthenticationError("You must be logged in!");
     },
-    // TODO: Mutation to updateHabit for user
+    // UPDATE habit
+    updateHabit: async (parent, args, context) => {
+      console.log(args);
+
+      // let updateHabit = { name, frequency, journal };
+      console.log("=================================");
+      // console.log("update Habit object", updateHabit);
+
+      if (context.user) {
+        const user = await User.findOne({
+          _id: context.user._id,
+        });
+
+        // console.log("habit id:", _id);
+        const habit = user.habits.find((habit) => {
+          return habit._id === args._id;
+        });
+        console.log("habit to update: ", habit);
+
+        habit.name = args.name;
+        habit.frequency = args.frequency;
+        habit.journal = args.journal;
+
+        const updateUser = await User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+          },
+          {
+            $set: {
+              habits: user.habit,
+            },
+          },
+          {
+            new: true,
+          }
+        );
+        return updateUser;
+      }
+
+      throw new AuthenticationError("You must be logged in!");
+    },
     // TODO: Mutation to create completedHabit for habit
   },
 };

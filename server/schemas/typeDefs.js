@@ -33,7 +33,7 @@ const typeDefs = gql`
     users: [User]
   }
 
-  input UserInput { 
+  input UserInput {
     username: String!
     email: String!
     password: String!
@@ -41,13 +41,13 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    # User 
+    # User
     signUp(userInput: UserInput!): Auth
     login(username: String!, password: String!): Auth
-    # Habit 
+    # Habit
     addHabit(name: String!, frequency: Int!, journal: String): Habit
-    removeHabit(_id:ID): Habit
-    updateHabit(name:String, frequency:Int): Habit
+    removeHabit(_id: ID): Habit
+    updateHabit(_id: ID, name: String, frequency: Int, journal: String): Habit
   }
 `;
 module.exports = typeDefs;
