@@ -1,10 +1,11 @@
 // import { ThemeProvider } from "styled-components";
-// import { Container, theme } from "./components/styles/Global.styled";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
+import Home from "./components/pages/Home";
+import Habits from "./components/pages/Habits";
+// import SideBar from "./components/SideBar";
 // import Footer from "./components/Footer";
-
 
 function App() {
   return (
@@ -12,7 +13,10 @@ function App() {
     //       basename="Habitual" in <Router>
     <Router>
       <Header />
-     
+      <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path="/habits" element={<Habits/>} />
+      </Routes>
     </Router>
   );
 }
