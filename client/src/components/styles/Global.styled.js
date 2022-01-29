@@ -12,7 +12,9 @@ export const theme = {
 
     colors: {
       textColor: '#6c584c', 
-      shadowColor: 'A98467',
-      highlightColor: 'adc178', 
+      shadowColor: '#A98467',
+      highlightColor: '#ADC178',
+      backgroundColor: '#F0EAD2',
+      lightShador: '#DDE5B6'
     }
 }

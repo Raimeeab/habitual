@@ -47,6 +47,7 @@ const typeDefs = gql`
     # Habit
     addHabit(name: String!, frequency: Int!, journal: String): Habit
     removeHabit(_id: ID): Habit
+    completedHabit(_id:ID): Habit
     updateHabit(_id: ID, name: String, frequency: Int, journal: String): Habit
   }
 `;

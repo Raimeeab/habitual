@@ -9,7 +9,7 @@ const habitSchema = new Schema(
       minlength: 1, 
       maxlength: 30, 
       trim: true, 
-      unique: true
+      // unique: true
     },
     frequency: {
       // How many times does user wish to complete habit per week

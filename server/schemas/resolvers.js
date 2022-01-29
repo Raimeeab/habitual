@@ -44,14 +44,15 @@ const resolvers = {
         throw new UserInputError("Validation errors", { errors });
       }
 
-      // let user = await User.findOne({ username });
-      // if (user) {
-      //   throw new UserInputError("Username already exists", {
-      //     errors:  {
-      //       username: "This username is taken"
-      //     }
-      //   });
-      // };
+      // Allows for app to be used in social network context in the future
+      let user = await User.findOne({ username });
+      if (user) {
+        throw new UserInputError("Username already exists", {
+          errors: {
+            username: "This username is taken",
+          },
+        });
+      }
 
       user = await User.create(userInput);
       const token = signToken(user);
@@ -73,11 +74,14 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // Add habit to existing user
+    // CREATE habit
     addHabit: async (parent, { name, frequency, journal }, context) => {
+      console.log("ADD HABIT=================================");
       let newHabit = { name, frequency, journal };
+      // console.log("Hitting addHabit", newHabit)
       // Auth user
       if (context.user) {
+        console.log("CONTEXT USER", context.user);
         // Get user info from context
         const findUser = await User.findOneAndUpdate(
           // Add new habit into user model
@@ -87,9 +91,10 @@ const resolvers = {
           },
           {
             new: true,
-            runValidators: true,
           }
         );
+        // console.log("habits: newHabit => ", habits, newHabit)
+        console.log("findUser after addToSet", findUser);
         // TODO: User can't have same habit name entered twice
 
         if (!findUser) {
@@ -97,6 +102,7 @@ const resolvers = {
         } else {
           // Retrieve habits array from user & return the new habit
           return findUser.habits.find((habit) => {
+            console.log("habit.name === habit", habit.name, "===", name);
             return habit.name === name;
           });
         }
@@ -124,15 +130,43 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in!");
     },
-    // UPDATE habit
+    // CREATE timestamp when habit is completed
+    // TODO: fix this - breaking the code 
+    // error: returning null & leads to other mutations breaking
+    completedHabit: async (parent, habitCompleted, context) => {
+      console.log("argument from user: ", habitCompleted);
+      if (context.user) {
+        const user = await User.findOneAndUpdate(
+          {
+            _id: context.user._id,
+          },
+          {
+            $addToSet: {
+              habits: {
+                completedHabit: {
+                  completedAt: habitCompleted,
+                },
+              },
+            },
+          },
+          {
+            new: true,
+          }
+        );
+        return user
+      }
+      throw new AuthenticationError("You must be logged in!");
+    },
+    // UPDATE habit - NOT MVP !
     updateHabit: async (parent, args, context) => {
+      console.log("UPDATE HABITS=================================");
       console.log(args);
 
       // let updateHabit = { name, frequency, journal };
-      console.log("=================================");
       // console.log("update Habit object", updateHabit);
 
       if (context.user) {
+        // Find the user by id (auth)
         const user = await User.findOne({
           _id: context.user._id,
         });
@@ -165,7 +199,6 @@ const resolvers = {
 
       throw new AuthenticationError("You must be logged in!");
     },
-    // TODO: Mutation to create completedHabit for habit
   },
 };
 
