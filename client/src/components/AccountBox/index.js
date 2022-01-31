@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AccountContext } from "./accountContext";
 import {
+  FormContainer,
   BoxContainer,
   TopContainer,
   BackDrop,
@@ -10,12 +11,14 @@ const AccountBox = () => {
 
   return (
     <AccountContext.Provider>
+      <FormContainer>
       <BoxContainer>
         <TopContainer>
           <BackDrop/>
-        
         </TopContainer>
       </BoxContainer>
+
+      </FormContainer>
     </AccountContext.Provider>
   );
 };

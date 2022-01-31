@@ -1,9 +1,18 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+// Contains the entire form into the center of any screen size 
+export const FormContainer = styled.div`
+width: 100%; 
+height: 100%; 
+display: flex; 
+flex-direction: center;
+justify-content: center;
+`
+
 export const BoxContainer = styled.div`
-align-self: center;
-  /* width: 260px; */
+  align-self: center;
+  width: 280px;
   min-height: 550px;
   display: flex;
   flex-direction: column;
