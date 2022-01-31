@@ -6,13 +6,13 @@
 }
 
 body {
-    background-color: var(--background-colour);
+  background-color: var(--background-colour);
   margin: 10px;
-  font-family: "Titillium Web","Roboto Mono", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
