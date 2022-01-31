@@ -45,7 +45,7 @@ const AccountBox = (props) => {
 
     setTimeout(() => {
       setExpanded(false);
-    }, expandingTransition * 1000);
+    }, expandingTransition * 1000 - 1500);
   };
 
   const switchToSignup = () => {
