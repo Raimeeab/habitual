@@ -69,7 +69,7 @@ export const HeaderText = styled.h2`
 `;
 
 export const SmallText = styled.h5`
-  color: #f0ead2;
+  color: white;
   font-weight: 500;
   font-size: 15px;
   z-index: 14;
@@ -97,6 +97,7 @@ export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
 `;
 
 // export const MutedLink = styled.a`
@@ -119,6 +120,7 @@ export const Input = styled.input`
   outline: none;
   height: 42px;
   padding: 0 10px;
+  margin-top: 5px;
   border-bottom: 1.4px solid transparent;
 
   &::placeholder {
@@ -153,7 +155,7 @@ export const SbmtButton = styled.button`
     rgba(149, 196, 132, 1) 58%
   );
   z-index: 14;
-  
+
   &:hover { 
     filter: brightness(1.03)
   }
