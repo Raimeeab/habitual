@@ -21,7 +21,7 @@ const LoginForm = (props) => {
         <Input type="name" placeholder="username" />
         <Input type="password" placeholder="password" />
         <Marginer direction="vertical" margin="1.6em" />
-        <SbmtButton>Signin</SbmtButton>
+        <SbmtButton>Sign in</SbmtButton>
         <Marginer direction="vertical" margin=".5em" />
         <MutedText>
           Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink>{" "}
