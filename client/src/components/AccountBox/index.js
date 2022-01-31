@@ -1,24 +1,36 @@
 import React, { useState } from "react";
+import LoginForm from "./LoginForm";
 import { AccountContext } from "./accountContext";
 import {
-  FormContainer,
+  BoxWrapper,
   BoxContainer,
   TopContainer,
   BackDrop,
+  HeaderContainer,
+  HeaderText, 
+  SmallText, 
+  InnerContainer
 } from "./Form.styled";
 
 const AccountBox = () => {
 
   return (
     <AccountContext.Provider>
-      <FormContainer>
+      <BoxWrapper>
       <BoxContainer>
         <TopContainer>
           <BackDrop/>
+          <HeaderContainer>
+            <HeaderText>Welcome Back!</HeaderText>
+            <SmallText>Sign in to continue</SmallText>
+          </HeaderContainer>
         </TopContainer>
+        <InnerContainer>
+          <LoginForm></LoginForm>
+        </InnerContainer>
       </BoxContainer>
 
-      </FormContainer>
+      </BoxWrapper>
     </AccountContext.Provider>
   );
 };
