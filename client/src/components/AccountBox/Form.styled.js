@@ -1,4 +1,6 @@
 import styled from "styled-components";
+
+// Allows for transition between the Login/ Signup forms 
 import { motion } from "framer-motion";
 
 // ----- Box Stylings -----
@@ -100,16 +102,12 @@ export const FormContainer = styled.form`
   padding: 0 10px;
 `;
 
-export const MutedLink = styled.a`
+export const MutedText = styled.p`
   font-size: 13px;
   color: #a98467;
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-
-  &:hover {
-    color: #adc178;
-  }
 `;
 
 export const BoldLink = styled.a`
@@ -117,6 +115,12 @@ export const BoldLink = styled.a`
   color: #adc178;
   font-weight: 500;
   text-decoration: none;
+  text-align: center;
+
+  /* TODO: Find out why this doesn't work */
+  &:hover {
+    text-decoration:#6c584c;
+  }
 `;
 
 export const Input = styled.input`
