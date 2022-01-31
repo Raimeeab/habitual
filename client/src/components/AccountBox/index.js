@@ -9,7 +9,7 @@ import {
   HeaderContainer,
   HeaderText, 
   SmallText, 
-  InnerContainer
+  InnerContainer, 
 } from "./Form.styled";
 
 const AccountBox = () => {
@@ -21,7 +21,8 @@ const AccountBox = () => {
         <TopContainer>
           <BackDrop/>
           <HeaderContainer>
-            <HeaderText>Welcome Back!</HeaderText>
+            <HeaderText>Welcome</HeaderText>
+            <HeaderText>Back!</HeaderText>
             <SmallText>Sign in to continue</SmallText>
           </HeaderContainer>
         </TopContainer>

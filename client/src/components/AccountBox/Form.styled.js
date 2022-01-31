@@ -56,7 +56,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `;
 
 export const HeaderText = styled.h2`
@@ -70,10 +70,10 @@ export const HeaderText = styled.h2`
 
 export const SmallText = styled.h5`
   color: white;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 12px;
   z-index: 14;
-  align-self: center;
+  /* align-self: center; */
   margin: 0;
 `;
 
@@ -100,12 +100,17 @@ export const FormContainer = styled.form`
   padding: 0 10px;
 `;
 
-// export const MutedLink = styled.a`
-//   font-size: 13px;
-//   color: #a98467;
-//   font-weight: 500;
-//   text-decoration: none;
-// `;
+export const MutedLink = styled.a`
+  font-size: 13px;
+  color: #a98467;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: #adc178;
+  }
+`;
 
 export const BoldLink = styled.a`
   font-size: 13px;
@@ -117,11 +122,14 @@ export const BoldLink = styled.a`
 export const Input = styled.input`
   width: 100%;
   border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 5px;
   outline: none;
   height: 42px;
   padding: 0 10px;
-  margin-top: 5px;
+  margin-top: .1px;
   border-bottom: 1.4px solid transparent;
+  transition: all 250ms ease-in-out;
+  font-size: 12px;
 
   &::placeholder {
     color: rgba(200, 200, 200, 1);
