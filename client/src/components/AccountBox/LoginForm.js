@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AccountContext } from "./accountContext";
 import { Marginer } from "./Marginer";
 import {
   FormContainer,
@@ -10,6 +11,9 @@ import {
 } from "./Form.styled";
 
 const LoginForm = (props) => {
+
+    const { switchToSignup } = useContext(AccountContext); 
+
   return (
     <FormWrapper>
       <FormContainer>
@@ -20,7 +24,7 @@ const LoginForm = (props) => {
         <SbmtButton>Signin</SbmtButton>
         <Marginer direction="vertical" margin=".5em" />
         <MutedText>
-          Don't have an account? <BoldLink href="#">Sign up</BoldLink>{" "}
+          Don't have an account? <BoldLink href="#" onClick={switchToSignup}>Sign up</BoldLink>{" "}
         </MutedText>
       </FormContainer>
     </FormWrapper>

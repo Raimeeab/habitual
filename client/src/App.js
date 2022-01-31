@@ -7,7 +7,6 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Habits from "./components/Habits/Habits";
-import Login from "./components/Login/Login";
 import AccountBox from "./components/AccountBox";
 
 function App() {
@@ -19,9 +18,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/habits" element={<Habits />} />
-          <Route path="/account" element={<AccountBox/>} />
+          <Route path="/login" element={<AccountBox/>} />
         </Routes>
       </Router>
     </>

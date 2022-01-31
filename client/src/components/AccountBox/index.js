@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 import { AccountContext } from "./accountContext";
 import {
   BoxWrapper,
@@ -44,25 +45,27 @@ const AccountBox = (props) => {
 
     setTimeout(() => {
       setExpanded(false);
-    }, expandingTransition * 1000 - 1500);
+    }, expandingTransition * 1000);
   };
 
-  const switchToSignuUp = () => {
-    playExpandingAnimation(); 
-   setTimeout(()=> {
-    setActive("signup"); 
-   }, 450)
-  }
+  const switchToSignup = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("signup");
+    }, 400);
+  };
 
-  const switchToSignIn = () => {
-    playExpandingAnimation(); 
-   setTimeout(()=> {
-    setActive("signin"); 
-   }, 450)
-  }
+  const switchToSignin = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("signin");
+    }, 400);
+  };
+
+  const contextValue = { switchToSignin, switchToSignup };
 
   return (
-    <AccountContext.Provider>
+    <AccountContext.Provider value={contextValue}>
       <BoxWrapper>
         <BoxContainer>
           <TopContainer>
@@ -73,13 +76,26 @@ const AccountBox = (props) => {
               variants={backdropVariants}
               transition={expandingTransition}
             />
-            <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back!</HeaderText>
-              <SmallText>Sign in to continue</SmallText>
-            </HeaderContainer>
+            {active === "signin" && (
+              <HeaderContainer>
+                <HeaderText>Welcome</HeaderText>
+                <HeaderText>Back</HeaderText>
+                <SmallText>Please sign-in to continue!</SmallText>
+              </HeaderContainer>
+            )}
+            {active === "signup" && (
+              <HeaderContainer>
+                <HeaderText>Create</HeaderText>
+                <HeaderText>Account</HeaderText>
+                <SmallText>Please sign-up to continue!</SmallText>
+              </HeaderContainer>
+            )}
           </TopContainer>
-          <InnerContainer>{<LoginForm></LoginForm>}</InnerContainer>
+          <InnerContainer>
+            {" "}
+            {active === "signin" && <LoginForm />}
+            {active === "signup" && <SignupForm />}
+          </InnerContainer>
         </BoxContainer>
       </BoxWrapper>
     </AccountContext.Provider>
