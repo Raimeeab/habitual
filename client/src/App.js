@@ -1,23 +1,32 @@
 // import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Home from "./components/pages/Home";
-import Habits from "./components/pages/Habits";
-// import SideBar from "./components/SideBar";
-// import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Habits from "./components/Habits/Habits";
+import Login from "./components/Login/Login";
+import "./App.css"; 
 
 function App() {
   return (
-    // TODO: before deployment add
+    // TODO: Before deployment add
     //       basename="Habitual" in <Router>
+    <>
     <Router>
-      <Header />
-      <Routes>
-      <Route path='/' element={<Home/>} />
-      <Route path="/habits" element={<Habits/>} />
-      </Routes>
+      <Switch>
+        <Header />
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route exact path="/habits">
+          <Habits/>
+        </Route>
+        <Route exact path="/login">
+          <Login/>
+        </Route>
+      </Switch>
     </Router>
+    </>
   );
 }
 
