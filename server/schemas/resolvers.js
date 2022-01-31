@@ -131,29 +131,32 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in!");
     },
     // CREATE timestamp when habit is completed
-    // TODO: fix this - breaking the code 
-    // error: returning null & leads to other mutations breaking
-    completedHabit: async (parent, habitCompleted, context) => {
-      console.log("argument from user: ", habitCompleted);
+    completedHabit: async (parent, { _id }, context) => {
+      console.log("argument from user: ", _id);
       if (context.user) {
-        const user = await User.findOneAndUpdate(
-          {
-            _id: context.user._id,
-          },
-          {
-            $addToSet: {
-              habits: {
-                completedHabit: {
-                  completedAt: habitCompleted,
-                },
-              },
-            },
-          },
-          {
-            new: true,
+        // create a new timestamp
+        const now = Date.now();
+        // find the user
+        const user = await User.findOne({
+          _id: context.user._id,
+        });
+
+        let updatedHabit = null;
+        // update the matching habit using map
+        user.habits = user.habits.map((habit) => {
+          // if _id match, then add a new completed habit timestamp
+          if (habit._id.toString() === _id) {
+            const completed = { completedAt: now };
+            habit.completedHabits.addToSet(completed);
+            updatedHabit = habit;
           }
-        );
-        return user
+          // return mapped habit value (inner map function return)
+          return habit;
+        });
+        // save changes to the user instance
+        const updated = await user.save();
+        // return the updated habit, tracked while mapping
+        return updatedHabit;
       }
       throw new AuthenticationError("You must be logged in!");
     },
