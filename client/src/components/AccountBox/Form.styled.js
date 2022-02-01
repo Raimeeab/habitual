@@ -117,9 +117,8 @@ export const BoldLink = styled.a`
   text-decoration: none;
   text-align: center;
 
-  /* TODO: Find out why this doesn't work */
   &:hover {
-    text-decoration:#6c584c;
+    color:#6c584c;
   }
 `;
 

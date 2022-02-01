@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth"; 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -33,6 +34,12 @@ const Styles = styled.div`
 `;
 
 const Header = () => {
+
+  const logout = (e) => {
+    e.preventDefault(); 
+    Auth.logout(); 
+  }; 
+
   return (
     <Styles>
       <Navbar className="navbar" expand="sm">
@@ -47,12 +54,20 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
+              {Auth.loggedIn() ? (
+                <>
+                <Link to="/" onClick={logout}> Logout</Link>
+                </>
+              ) : (
+                <>
               <Link to="/login" className="navbarLinks">
                 Login
               </Link>
               <Link to="/habits" className="navbarLinks">
                 Habits
               </Link>
+                </>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

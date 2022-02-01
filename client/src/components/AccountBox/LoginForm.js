@@ -22,7 +22,7 @@ const LoginForm = (props) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // Update state based on form input changes
+  // Update state based on form input
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -47,15 +47,18 @@ const LoginForm = (props) => {
 
     // Clear form values
     setFormState({
-      username: "",
-      password: "",
+      username: " ",
+      password: " ",
     });
   };
 
   return (
     <FormWrapper>
       {data ? (
-        <Link to="/habits"></Link>
+        <p>
+          Success! You may now head to {" "}
+        <Link to="/habits">habits.</Link>
+        </p>
       ) : (
         <FormContainer onSubmit={handleFormSubmit}>
           <Marginer direction="vertical" margin={10} />
