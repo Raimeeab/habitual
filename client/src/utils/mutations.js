@@ -12,16 +12,37 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// TODO: need to fix userInput mutation, keep getting error: 
+// "message":"Variable \"$userInput\" of required type \"UserInput!\" was not provided."
 export const ADD_USER = gql`
-    mutation signUp($userInput: UserInput!) {
-        signUp(userInput: $userInput) { 
-            token
-            user { 
-              _id
-              email
-              username
-            }
-        }
+  mutation signUp($userInput: UserInput!) {
+    signUp(userInput: $userInput) {
+      token
+      user {
+        _id
+        email
+        username
+      }
     }
+  }
 `;
+
+export const ADD_HABIT = gql`
+  mutation addHabit($name: String!, $frequency: Int!, $journal: String) {
+    addHabit(name: $name, frequency: $frequency, journal: $journal) {
+      name
+      frequency
+      journal
+    }
+  }
+`;
+
+export const REMOVE_HABIT = gql`
+mutation removeHabit($_id: ID) {
+  removeHabit(_id:$_id) {
+    _id
+  }
+}
+`
+
 

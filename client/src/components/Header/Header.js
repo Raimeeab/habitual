@@ -18,6 +18,7 @@ const Styles = styled.div`
     font-weight: bolder;
     color: #adc178;
     justify-content: flex-end;
+    text-shadow: 1px 1.5px #a98467;
   }
 
   .navbarLinks {
