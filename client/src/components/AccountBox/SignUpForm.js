@@ -45,8 +45,9 @@ const SignupForm = () => {
 
     try {
       const { data } = await signUp({
-        variabls: { ...formState },
+        variables: { ...formState },
       });
+      console.log("checking if signup fetch is called:", data)
 
       Auth.login(data.signUp.token);
     } catch (e) {
@@ -65,24 +66,28 @@ const SignupForm = () => {
         <FormContainer onSubmit={handleFormSubmit}>
           <Input
             type="name"
+            name="username"
             placeholder="username"
             value={formState.username}
             onChange={handleChange}
           />
           <Input
             type="email"
+            name="email"
             placeholder="email"
             value={formState.email}
             onChange={handleChange}
           />
           <Input
             type="password"
+            name="password"
             placeholder="password"
             value={formState.password}
             onChange={handleChange}
           />
           <Input
             type="password"
+            name="confirmPassword"
             placeholder="confirm password"
             value={formState.confirmPassword}
             onChange={handleChange}

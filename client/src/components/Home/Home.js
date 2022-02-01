@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 import logo from "../../assets/logo.png";
-import Button from "@material-ui/core/Button"; 
 import {
   TextContainer,
   BackgroundImage,
@@ -17,7 +16,7 @@ const Home = () => {
       <TextContainer>
         <Welcome> Welcome to Habitual </Welcome>
         <Text>Habit tracking, made easy</Text>
-        <Button variant="contained" href="/login">Get Started</Button>
+        <Button variant="contained" size="medium" href="/login">Get Started</Button>
       </TextContainer>
       </BackgroundImage>
     </>

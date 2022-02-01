@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import { AccountContext } from "./accountContext";
@@ -21,6 +21,11 @@ const LoginForm = (props) => {
 
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+  const navigate = useNavigate(); 
+
+  const handleCLick = () => {
+    navigate("/habits");
+  }
 
   // Update state based on form input
   const handleChange = (e) => {
@@ -40,7 +45,10 @@ const LoginForm = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
+
       Auth.login(data.login.token);
+
+
     } catch (e) {
       console.error(e);
     }
@@ -55,15 +63,16 @@ const LoginForm = (props) => {
   return (
     <FormWrapper>
       {data ? (
-        <p>
-          Success! You may now head to {" "}
-        <Link to="/habits">habits.</Link>
-        </p>
+        <MutedText>
+          Success!
+        {/* <Link to="/habits">habits.</Link> */}
+        </MutedText>
       ) : (
         <FormContainer onSubmit={handleFormSubmit}>
           <Marginer direction="vertical" margin={10} />
           <Input
             type="name"
+            name="username"
             placeholder="username"
             value={formState.username}
             onChange={handleChange}
@@ -71,13 +80,14 @@ const LoginForm = (props) => {
           />
           <Input
             type="password"
+            name="password"
             placeholder="password"
             value={formState.password}
             onChange={handleChange}
             // error={error.password ? true : false}
           />
           <Marginer direction="vertical" margin="1.6em" />
-          <SbmtButton>Sign in</SbmtButton>
+          <SbmtButton onClick={handleCLick}>Sign in</SbmtButton>
           <Marginer direction="vertical" margin=".5em" />
           <MutedText>
             Don't have an account?{" "}

@@ -3,26 +3,38 @@ import styled from "styled-components";
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 0 1px rgba(15, 15, 15, 0.28);
+   /* Full screen - navbar */
+  background: rgb(173, 193, 120);
+  background: linear-gradient(
+    50deg,
+    rgba(173, 193, 120, .3) 0%,
+    rgba(255, 255, 255, .3) 58%
+  );
+  border-radius: 19px;
+  margin: 0 10px;
 `;
 
 export const BackgroundImage = styled.div`
-  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 56px);
+  justify-content: center;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-attachment: inherit;
-  min-height: 200%;
+  background-position: center;
 `;
 
 export const Welcome = styled.h1`
+  text-align: center;
   font-size: 30px;
-  font-weight: 600px;
+  font-weight: 600;
   line-height: 1.24;
   color: #6c584c;
-  z-index: 10;
   margin: 0;
 `;
 
@@ -50,4 +62,3 @@ export const RegisterBtn = styled.button`
     rgba(149, 196, 132, 1) 58%
   );
 `;
-
