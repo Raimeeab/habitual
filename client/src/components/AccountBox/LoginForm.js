@@ -2,6 +2,7 @@ import React, { useContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
+import DotLoader from "react-spinners/DotLoader"; 
 import { AccountContext } from "./accountContext";
 import { Marginer } from "./Marginer";
 import {
@@ -55,8 +56,8 @@ const LoginForm = (props) => {
 
     // Clear form values
     setFormState({
-      username: " ",
-      password: " ",
+      username: "",
+      password: "",
     });
   };
 
@@ -64,8 +65,7 @@ const LoginForm = (props) => {
     <FormWrapper>
       {data ? (
         <MutedText>
-          Success!
-        {/* <Link to="/habits">habits.</Link> */}
+          <DotLoader color={"#adc178"} loading={data} size={70} />
         </MutedText>
       ) : (
         <FormContainer onSubmit={handleFormSubmit}>
@@ -87,7 +87,7 @@ const LoginForm = (props) => {
             // error={error.password ? true : false}
           />
           <Marginer direction="vertical" margin="1.6em" />
-          <SbmtButton onClick={handleCLick}>Sign in</SbmtButton>
+          <SbmtButton onClick={handleCLick} >Sign in</SbmtButton>
           <Marginer direction="vertical" margin=".5em" />
           <MutedText>
             Don't have an account?{" "}
