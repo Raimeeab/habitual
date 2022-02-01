@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import Button from '@mui/material/Button';
 
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   box-shadow: 0 0 1px rgba(15, 15, 15, 0.28);
    /* Full screen - navbar */
   background: rgb(173, 193, 120);
@@ -62,3 +62,26 @@ export const RegisterBtn = styled.button`
     rgba(149, 196, 132, 1) 58%
   );
 `;
+
+export const StyledButton = styled(Button)`
+ &&{
+  margin: 10px 0;
+  color: white;
+  font-size: 12px; 
+  border: none; 
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 240ms ease-in-out;
+  background: rgb(173, 193, 120);
+  background: linear-gradient(
+    50deg,
+    rgba(173, 193, 120, 1) 35%,
+    rgba(149, 196, 132, 1) 58%
+  );
+  z-index: 3;
+
+  &:hover { 
+    filter: brightness(1.03)
+  }
+ }
+`
