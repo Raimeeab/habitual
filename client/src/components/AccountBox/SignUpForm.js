@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Marginer } from "./Marginer";
 import { AccountContext } from "./accountContext";
 import {
@@ -12,7 +12,8 @@ import {
 
 const SignupForm = () => {
 
-    const { switchToSignin } = useContext(AccountContext); 
+  // Use context to switch user forms 
+  const { switchToSignin } = useContext(AccountContext);
   return (
     <FormWrapper>
       <FormContainer>
@@ -24,7 +25,10 @@ const SignupForm = () => {
         <SbmtButton>Register</SbmtButton>
         <Marginer direction="vertical" margin=".5em" />
         <MutedText>
-          Already have an account? <BoldLink href="#" onClick={switchToSignin}>Sign in</BoldLink>{" "}
+          Already have an account?{" "}
+          <BoldLink href="#" onClick={switchToSignin}>
+            Sign in
+          </BoldLink>{" "}
         </MutedText>
       </FormContainer>
     </FormWrapper>
