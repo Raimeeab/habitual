@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import LoginForm from "../AccountBox/LoginForm";
-import SignupForm from "../AccountBox/SignupForm";
-import { AccountContext } from "../AccountBox/accountContext";
+import LoginForm from "../FormComponents/LoginForm";
+import SignupForm from "../FormComponents/SignupForm";
+import { AccountContext } from "../FormComponents/accountContext";
 import {
   BoxWrapper,
   BoxContainer,
@@ -11,7 +11,7 @@ import {
   HeaderText,
   SmallText,
   InnerContainer,
-} from "../styles/Form.styled";
+} from "../styles/LoginForm.styled";
 
 // ----- Holds all the porperties for the expanded/ collapsed state -----
 const backdropVariants = {

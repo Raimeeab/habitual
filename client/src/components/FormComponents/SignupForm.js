@@ -13,17 +13,19 @@ import {
   SbmtButton,
   MutedText,
   BoldLink,
-} from "../styles/Form.styled";
+} from "../styles/LoginForm.styled";
 
 const SignupForm = () => {
   // Use context to switch user forms
   const { switchToSignin } = useContext(AccountContext);
 
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    userInput: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
 
   const [signUp, { error, data }] = useMutation(ADD_USER);
@@ -47,7 +49,7 @@ const SignupForm = () => {
       const { data } = await signUp({
         variables: { ...formState },
       });
-      console.log("checking if signup fetch is called:", data)
+      console.log("checking if signup fetch is called:", data);
 
       Auth.login(data.signUp.token);
     } catch (e) {
@@ -104,9 +106,7 @@ const SignupForm = () => {
         </FormContainer>
       )}
 
-      {error && (
-        <MutedText> {error.message} </MutedText>
-      )}
+      {error && <MutedText> {error.message} </MutedText>}
     </FormWrapper>
   );
 };

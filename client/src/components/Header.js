@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth"; 
+import Auth from "../utils/auth";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import styled from "styled-components";
 
 const Styles = styled.div`
-
   .navbar {
-    background-color:#f0ead2 ;
+    background-color: #f0ead2;
   }
 
   .title {
@@ -31,15 +30,13 @@ const Styles = styled.div`
       border-bottom: 3px solid #adc178;
     }
   }
-
 `;
 
 const Header = () => {
-
   const logout = (e) => {
-    e.preventDefault(); 
-    Auth.logout(); 
-  }; 
+    e.preventDefault();
+    Auth.logout();
+  };
 
   return (
     <Styles>
@@ -57,16 +54,22 @@ const Header = () => {
             >
               {Auth.loggedIn() ? (
                 <>
-                <Link to="/" onClick={logout}> Logout</Link>
+                  <Link to="/" onClick={logout} className="navbarLinks">
+                    {" "}
+                    Logout
+                  </Link>
+                  <Link to="/habits" className="navbarLinks">
+                    Habits
+                  </Link>
                 </>
               ) : (
                 <>
-              <Link to="/login" className="navbarLinks">
-                Login
-              </Link>
-              <Link to="/habits" className="navbarLinks">
-                Habits
-              </Link>
+                  <Link to="/login" className="navbarLinks">
+                    Login
+                  </Link>
+                  <Link to="/habits" className="navbarLinks">
+                    Habits
+                  </Link>
                 </>
               )}
             </Nav>

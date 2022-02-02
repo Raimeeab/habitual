@@ -14,7 +14,7 @@ module.exports.validateUserInput = (
     }; 
 
     if (!password || password === ''){
-        erros.password = "Password required to create an account"
+        errors.password = "Password required to create an account"
     } else if (password != confirmPassword) {
         errors.confirmPassword = "Passwords do not match"
     }

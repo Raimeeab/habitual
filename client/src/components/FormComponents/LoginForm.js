@@ -12,7 +12,7 @@ import {
   SbmtButton,
   MutedText,
   BoldLink,
-} from "../styles/Form.styled";
+} from "../styles/LoginForm.styled";
 
 import Auth from "../../utils/auth";
 
@@ -76,7 +76,6 @@ const LoginForm = (props) => {
             placeholder="username"
             value={formState.username}
             onChange={handleChange}
-            // error={error.username ? true : false}
           />
           <Input
             type="password"
@@ -84,7 +83,6 @@ const LoginForm = (props) => {
             placeholder="password"
             value={formState.password}
             onChange={handleChange}
-            // error={error.password ? true : false}
           />
           <Marginer direction="vertical" margin="1.6em" />
           <SbmtButton onClick={handleCLick} >Sign in</SbmtButton>
