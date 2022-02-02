@@ -12,7 +12,7 @@ import {
   SbmtButton,
   MutedText,
   BoldLink,
-} from "./Form.styled";
+} from "../styles/Form.styled";
 
 import Auth from "../../utils/auth";
 

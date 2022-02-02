@@ -13,7 +13,7 @@ import {
   SbmtButton,
   MutedText,
   BoldLink,
-} from "./Form.styled";
+} from "../styles/Form.styled";
 
 const SignupForm = () => {
   // Use context to switch user forms

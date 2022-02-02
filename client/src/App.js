@@ -11,10 +11,10 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 
 // App components
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import Habits from "./components/Habits/Habits";
-import AccountBox from "./components/AccountBox";
+import Header from "./components/Header";
+import Home from "./components/pages/Home";
+import Habits from "./components/pages/Habits";
+import AccountBox from "./components/pages/Form";
 
 // Construct main GraphQl API endpoint
 const httpLink = createHttpLink({

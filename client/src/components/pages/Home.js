@@ -6,7 +6,7 @@ import {
   Welcome,
   Text,
   StyledButton
-} from "./Home.styled";
+} from "../styles/Home.styled";
 
 const Home = () => {
   return (
