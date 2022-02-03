@@ -14,6 +14,7 @@ export const TextContainer = styled.div`
     rgba(255, 255, 255, .3) 58%
   );
   border-radius: 19px;
+  background-size:contain;
   margin: 0 10px;
 `;
 

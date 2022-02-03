@@ -26,7 +26,7 @@ const Styles = styled.div`
     color: #6c584c;
 
     &:hover {
-      transition: all 0.2 ease-in-out;
+      transition: all 0.5 ease-in-out;
       border-bottom: 3px solid #adc178;
     }
   }

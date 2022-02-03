@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import DotLoader from "react-spinners/DotLoader"; 
 import { AccountContext } from "./accountContext";
-import { Marginer } from "./Marginer";
+import { Marginer } from "../../utils/Marginer";
 import {
   FormContainer,
   FormWrapper,
@@ -48,8 +48,7 @@ const LoginForm = (props) => {
       });
 
       Auth.login(data.login.token);
-
-
+      
     } catch (e) {
       console.error(e);
     }
