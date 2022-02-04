@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import { Marginer } from "../../utils/Marginer";
 import { AccountContext } from "./accountContext";
+import DotLoader from "react-spinners/DotLoader";
 import {
   FormContainer,
   FormWrapper,
@@ -17,6 +18,7 @@ import {
 const SignupForm = () => {
   // Use context to switch user forms
   const { switchToSignin } = useContext(AccountContext);
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -45,6 +47,7 @@ const SignupForm = () => {
       });
       console.log("checking if signup fetch is called:", JSON.stringify(data));
       await Auth.login(data.signUp.token);
+      navigate("/habits");
     } catch (e) {
       console.error(e);
       console.log(e);
@@ -55,7 +58,7 @@ const SignupForm = () => {
     <FormWrapper>
       {data ? (
         <MutedText>
-          Let's get started! <Link to="/habits">Heading to Habits page</Link>
+          <DotLoader color={"#adc178"} loading={data} size={70} />
         </MutedText>
       ) : (
         <FormContainer onSubmit={handleFormSubmit}>
