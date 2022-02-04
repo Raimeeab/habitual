@@ -17,14 +17,11 @@ import {
 const SignupForm = () => {
   // Use context to switch user forms
   const { switchToSignin } = useContext(AccountContext);
-
   const [formState, setFormState] = useState({
-    userInput: {
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    },
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const [signUp, { error, data }] = useMutation(ADD_USER);
@@ -32,7 +29,6 @@ const SignupForm = () => {
   // Update state based on form input
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -43,20 +39,18 @@ const SignupForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(formState);
-
     try {
       const { data } = await signUp({
-        variables: { ...formState },
+        variables: { userInput: { ...formState } },
       });
-      console.log("checking if signup fetch is called:", data);
-
-      Auth.login(data.signUp.token);
+      console.log("checking if signup fetch is called:", JSON.stringify(data));
+      await Auth.login(data.signUp.token);
     } catch (e) {
       console.error(e);
       console.log(e);
     }
   };
-
+  
   return (
     <FormWrapper>
       {data ? (
@@ -104,10 +98,8 @@ const SignupForm = () => {
           </MutedText>
         </FormContainer>
       )}
-
       {error && <MutedText> {error.message} </MutedText>}
     </FormWrapper>
   );
 };
-
 export default SignupForm;
