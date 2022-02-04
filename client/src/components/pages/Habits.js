@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ViewHabits from "../HabitComponents/ViewHabits";
 import {
   Card,
   CardContent,
   Container,
   Table,
   TableHead,
-  TableRow,
   TableBody,
+  TableRow,
   TableCell,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import DoneIcon from "@mui/icons-material/Done";
+import DotLoader from "react-spinners/DotLoader";
 // import DatePicker from "../HabitComponents/DatePicker";
 import { QUERY_USER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -19,16 +20,8 @@ import Auth from "../../utils/auth";
 const Habits = () => {
   const { loading, data } = useQuery(QUERY_USER);
   const isLoggedIn = Auth.loggedIn();
-  const habitData = data?.getHabits || [];
-  const createData = (name, frequency, isComplete) => {
-    return (name, frequency, isComplete);
-  };
-  // TODO: get habits using query & have it render on the page
-  const getHabits = [
-    createData("Go for a run", 4, ""),
-    createData("Meditate", 3, ""),
-    createData("Read", 5, ""),
-  ];
+  const habits = data?.getHabits || [];
+
   return (
     <>
       <Container maxWidth="sm">
@@ -49,22 +42,15 @@ const Habits = () => {
                     </TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody>
-                  {getHabits.map((habit, index) => (
-                    <TableRow
-                      key={index}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="habit">
-                        {habit.name}
-                      </TableCell>
-                      <TableCell align="right">{habit.frequency}</TableCell>
-                      <TableCell align="center">
-                        <DoneIcon fontSize="md" />
-                      </TableCell>
+                {loading ? (
+                  <TableBody>
+                    <TableRow>
+                      <DotLoader color={"#adc178"} loading={data} size={70} />
                     </TableRow>
-                  ))}
-                </TableBody>
+                  </TableBody>
+                ) : (
+                  <ViewHabits habits={habits}></ViewHabits>
+                )}
               </Table>
             </CardContent>
           </Card>

@@ -33,6 +33,8 @@ const Styles = styled.div`
 `;
 
 const Header = () => {
+
+  const isLoggedIn = Auth.loggedIn();
   const logout = (e) => {
     e.preventDefault();
     Auth.logout();
@@ -52,7 +54,7 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              {Auth.loggedIn() ? (
+              {isLoggedIn ? (
                 <>
                   <Link to="/" onClick={logout} className="navbarLinks">
                     {" "}
