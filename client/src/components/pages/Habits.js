@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
+import AddHabit from "../HabitComponents/AddHabit";
 
 import {
   Card,
@@ -24,7 +25,14 @@ const Habits = () => {
 
   // Confirm user is logged in
   const isLoggedIn = Auth.loggedIn();
+
+  // Use optional chaining to check if data exists and if it has a habits property. If not, return an empty array to use.
   const habits = data?.userById.habits || [];
+
+
+  const [addHabit, setAddHabit] = useState(false);
+  const handleOpenAddHabit = () => setAddHabit(true);
+  const handleCloseAddHabit = () => setAddHabit(false);
 
   return (
     <>
@@ -42,7 +50,7 @@ const Habits = () => {
                     <TableCell align="center">Habits</TableCell>
                     <TableCell align="center">Frequency</TableCell>
                     <TableCell align="center">
-                      <AddIcon fontSize="md" />
+                      <AddIcon fontSize="md" onClick={handleOpenAddHabit} />
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -70,6 +78,7 @@ const Habits = () => {
           </Card>
         )}
       </Container>
+      <AddHabit addHabit={addHabit} handelClose={handleCloseAddHabit} />
     </>
   );
 };

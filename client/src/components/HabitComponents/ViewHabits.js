@@ -7,7 +7,7 @@ const ViewHabits = ({ habits }) => {
     console.log("habit length:", habits.length)
     return (
       <TableBody>
-        <TableRow>No habits added yet</TableRow>
+        <TableRow><TableCell>No habits added yet</TableCell></TableRow>
       </TableBody>
     );
   }
