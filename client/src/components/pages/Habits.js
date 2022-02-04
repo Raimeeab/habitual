@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
+
 import {
   Card,
   CardContent,
@@ -13,14 +16,15 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import DotLoader from "react-spinners/DotLoader";
 // import DatePicker from "../HabitComponents/DatePicker";
-import { QUERY_USER } from "../../utils/queries";
-import { useQuery } from "@apollo/client";
+
 import Auth from "../../utils/auth";
 
 const Habits = () => {
   const { loading, data } = useQuery(QUERY_USER);
+
+  // Confirm user is logged in
   const isLoggedIn = Auth.loggedIn();
-  const habits = data?.getHabits || [];
+  const habits = data?.userById.habits || [];
 
   return (
     <>
@@ -45,7 +49,9 @@ const Habits = () => {
                 {loading ? (
                   <TableBody>
                     <TableRow>
-                      <DotLoader color={"#adc178"} loading={data} size={70} />
+                      <TableCell>
+                        <DotLoader color={"#adc178"} loading={data} size={70} />
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 ) : (
