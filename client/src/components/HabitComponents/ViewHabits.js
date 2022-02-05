@@ -1,34 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { COMPLETE_HABIT } from "../../utils/mutations";
+
 import { TableBody, TableRow, TableCell } from "@mui/material";
-import DoneIcon from "@mui/icons-material/Done";
+import {
+  BodyText,
+  StyledTableBody,
+  StyledCompleteHabit,
+  StyledDeleteHabit,
+  IconWrapper
+} from "../styles/Habits.styled";
 
 const ViewHabits = ({ habits }) => {
+  const [updateHabit] = useMutation(COMPLETE_HABIT);
+
+  const handleCompleteHabits = async (habitId) => {
+    try {
+      console.log("check updateHabit: ", updateHabit); 
+      console.log("check habitID: ", habitId); 
+      const date = await updateHabit({
+        variables: {
+          _id: habitId,
+        },
+      });
+
+      console.log(date);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (!habits.length) {
-    console.log("habit length:", habits.length)
+    console.log("habit length:", habits.length);
     return (
       <TableBody>
-        <TableRow><TableCell>No habits added yet</TableCell></TableRow>
+        <TableRow>
+          <TableCell>
+            <BodyText>No habits added yet</BodyText>
+          </TableCell>
+        </TableRow>
       </TableBody>
     );
   }
   return (
     <>
-      <TableBody>
-        {habits.map((habit) =>  (
+      <StyledTableBody>
+        {habits.map((habit) => (
           <TableRow
             key={habit._id}
             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
           >
             <TableCell align="center" component="th" scope="habit">
-              {habit.name}
+              <BodyText>{habit.name}</BodyText>
             </TableCell>
-            <TableCell align="center">{habit.frequency}</TableCell>
             <TableCell align="center">
-              <DoneIcon fontSize="md" />
+              <BodyText>{habit.frequency}</BodyText>
+            </TableCell>
+            <TableCell align="center">
+              <IconWrapper>
+                <StyledCompleteHabit
+                  onClick={() => handleCompleteHabits(habit._id)}
+                />{" "}
+                <StyledDeleteHabit />
+              </IconWrapper>
             </TableCell>
           </TableRow>
         ))}
-      </TableBody>
+      </StyledTableBody>
     </>
   );
 };

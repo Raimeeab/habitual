@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
-import AddHabit from "../HabitComponents/AddHabit";
-
+import AddHabitModal from "../HabitComponents/AddHabitModal";
+import bgVid from "../../assets/background.mp4";
+import { VideoBackground } from "../styles/Home.styled";
 import {
   Card,
   CardContent,
@@ -14,8 +15,12 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import DotLoader from "react-spinners/DotLoader";
+import {
+  StyledContainer,
+  StyledDotLoader,
+  StyledAddIcon,
+  StyledCard,
+} from "../styles/Habits.styled";
 // import DatePicker from "../HabitComponents/DatePicker";
 
 import Auth from "../../utils/auth";
@@ -29,30 +34,30 @@ const Habits = () => {
   // Use optional chaining to check if data exists and if it has a habits property. If not, return an empty array to use.
   const habits = data?.userById.habits || [];
 
-
   const [modal, setModal] = useState(false);
   const handleOpenModal = () => setModal(true);
   const handleCloseModal = () => setModal(false);
 
   return (
     <>
-      <Container maxWidth="sm">
+      <StyledContainer maxWidth="sm">
+        <VideoBackground loop autoPlay>
+          <source src={bgVid} type="video/mp4" />
+        </VideoBackground>
         {isLoggedIn ? (
-          <Card
+          <StyledCard
             className="root"
             variant="outlined"
-            style={{ marginTop: 35, background: "#f0ead2" }}
+            style={{ marginTop: 35 }}
           >
             <CardContent>
               <Table sx={{ minWidth: 200 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell  style={{fontSize:"1.3rem"}} align="center">Habits</TableCell>
-                    <TableCell align="center">Frequency</TableCell>
+                    <TableCell align="left">Habits</TableCell>
+                    <TableCell align="left">Frequency</TableCell>
                     <TableCell align="center">
-                      <AddIcon fontSize="large" 
-                      style={{pointer:"cursor", color: "#adc178"}}
-                      onClick={handleOpenModal} />
+                      <StyledAddIcon onClick={handleOpenModal} />
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -60,7 +65,11 @@ const Habits = () => {
                   <TableBody>
                     <TableRow>
                       <TableCell>
-                        <DotLoader color={"#adc178"} loading={data} size={70} />
+                        <StyledDotLoader
+                          color={"#adc178"}
+                          loading={data}
+                          size={70}
+                        />
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -69,18 +78,18 @@ const Habits = () => {
                 )}
               </Table>
             </CardContent>
-          </Card>
+          </StyledCard>
         ) : (
-          <Card
+          <StyledCard
             className="root"
             variant="outlined"
-            style={{ marginTop: 35, background: "#f0ead2" }}
+            style={{ marginTop: 35 }}
           >
             <CardContent>You must be logged in to view habits.</CardContent>
-          </Card>
+          </StyledCard>
         )}
-      </Container>
-      <AddHabit modal={modal} handleCloseModal={handleCloseModal} />
+      </StyledContainer>
+      <AddHabitModal modal={modal} handleCloseModal={handleCloseModal} />
     </>
   );
 };

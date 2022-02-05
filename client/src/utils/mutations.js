@@ -28,7 +28,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_HABIT = gql`
-  mutation addHabit($name: String!, $frequency: Int!, $journal: String) {
+  mutation addHabit($name: String!, $frequency: String!, $journal: String) {
     addHabit(name: $name, frequency: $frequency, journal: $journal) {
       name
       frequency
@@ -45,4 +45,13 @@ mutation removeHabit($_id: ID) {
 }
 `
 
+export const COMPLETE_HABIT = gql`
+mutation completedHabit($id: ID) {
+  completedHabit(_id: $id) {
+    completedHabits {
+      completedAt
+    }
+  }
+}
+`
 

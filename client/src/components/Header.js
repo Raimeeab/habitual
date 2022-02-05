@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   .navbar {
-    background-color: #f0ead2;
+   background-color: none;
   }
 
   .title {
@@ -17,13 +17,13 @@ const Styles = styled.div`
     font-weight: bolder;
     color: #adc178;
     justify-content: flex-end;
-    text-shadow: 1px 1.5px #a98467;
+    text-shadow: .5px .5px white;
   }
 
   .navbarLinks {
     margin-left: 10px;
     text-decoration: none;
-    color: #6c584c;
+    color: white;
 
     &:hover {
       transition: all 0.5 ease-in-out;
@@ -33,11 +33,12 @@ const Styles = styled.div`
 `;
 
 const Header = () => {
-
+  const navigate = useNavigate();
   const isLoggedIn = Auth.loggedIn();
   const logout = (e) => {
     e.preventDefault();
     Auth.logout();
+    navigate("/login");
   };
 
   return (

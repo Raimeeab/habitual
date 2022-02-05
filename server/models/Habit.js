@@ -13,10 +13,10 @@ const habitSchema = new Schema(
     },
     frequency: {
       // How many times does user wish to complete habit per week
-      type: Number,
+      type: String,
       required: "Frequency must be at least once a week!",
-      min: 1,
-      max: 7,
+      // min: 1,
+      // max: 7,
     },
     journal: {
       // User can input notes about their habits

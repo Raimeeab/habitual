@@ -20,7 +20,7 @@ export const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 19px;
-  background-color: #f0ead2;
+  background-color: #fffff2;
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
@@ -140,9 +140,9 @@ export const Input = styled.input`
   }
 
   /* Add border bottom to the last element */
-  &:not(:last-of-type) {
-    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
-  }
+  /* &:not(:last-of-type) {
+    border-bottom: 2px solid rgba(200, 200, 200, 0.4);
+  } */
 
   &:focus {
     outline: none;
@@ -183,7 +183,8 @@ export const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400;
-  background-color: #f0ead2;
+  background: rgb(216,226,204);
+background: radial-gradient(circle, rgba(216,226,204,1) 0%, rgba(255,255,255,1) 100%);
   /* box-align: center; */
 
   &:focus {

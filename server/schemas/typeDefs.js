@@ -10,7 +10,7 @@ const typeDefs = gql`
   type Habit {
     _id: ID
     name: String!
-    frequency: Int!
+    frequency: String!
     journal: String
     completedHabits: [CompletedHabits]
   }
@@ -45,7 +45,7 @@ const typeDefs = gql`
     signUp(userInput: UserInput!): Auth
     login(username: String!, password: String!): Auth
     # Habit
-    addHabit(name: String!, frequency: Int!, journal: String): Habit
+    addHabit(name: String!, frequency: String!, journal: String): Habit
     removeHabit(_id: ID): Habit
     completedHabit(_id:ID): Habit
     updateHabit(_id: ID, name: String, frequency: Int, journal: String): Habit
