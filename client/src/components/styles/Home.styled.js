@@ -21,32 +21,8 @@ export const TextContainer = styled.div`
   z-index: 10px;
 `;
 
-export const StyledButton = styled(Button)`
-  && {
-    margin: 10px 0;
-    color: white;
-    font-size: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 240ms ease-in-out;
-    background: rgb(173, 193, 120);
-    background: linear-gradient(
-      50deg,
-      rgba(173, 193, 120, 1) 35%,
-      rgba(149, 196, 132, 1) 58%
-    );
-    z-index: 10px;
 
-    &:hover {
-      filter: brightness(1.03);
-    }
-  }
-`;
-
-
-
-// NEW STYLINGS : 
+// NEW STYLINGS :
 
 export const HeroContainer = styled.div`
   display: flex;
@@ -55,23 +31,23 @@ export const HeroContainer = styled.div`
 `;
 
 export const VideoBackground = styled.video`
-  position: fixed; 
+  position: fixed;
   background-clip: url(${(props) => props.video});
-  top: 0px; 
-  right: 0; 
+  top: 0px;
+  right: 0;
   bottom: 0;
-  left: 0; 
-  z-index:-1;
+  left: 0;
+  z-index: -1;
   background-position: center;
   object-fit: cover;
 
   @media (max-width: 760px) {
-  #myvid {
-    width: 100%; /* actually wider than viewport */
-    height: 100%;
+    #myvid {
+      width: 100%; /* actually wider than viewport */
+      height: 100%;
+    }
   }
-}
-`
+`;
 
 export const BackgroundImage = styled.img`
   justify-content: center;
@@ -82,20 +58,20 @@ export const BackgroundImage = styled.img`
   opacity: 90%;
   background-size: cover;
 
-  @media (max-width:1000px) {
-    z-index:-2;
+  @media (max-width: 1000px) {
+    z-index: -2;
   }
 `;
 
 export const GetStarted = styled(Button)`
-flex-direction: column;
-height: 80px;
-font-size: 50px;
-font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
+  flex-direction: column;
+  height: 60px;
+  font-size: 50px;
+  font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
-    padding: 10px 60px;
-justify-content: center; 
+  padding: 10px 60px;
+  justify-content: center;
 
   color: white;
   font-weight: 900;
@@ -103,11 +79,17 @@ justify-content: center;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
   transition: all 240ms ease-in-out;
-  background: rgb(173, 193, 120);
+  background: rgb(204, 223, 153);
+  background: linear-gradient(
+    0deg,
+    rgba(204, 223, 153, 1) 0%,
+    rgba(173, 197, 124, 1) 100%
+  );
+  /* background: rgb(173, 193, 120);
   background: linear-gradient(
     50deg,
     rgba(173, 193, 120, 1) 35%,
     rgba(149, 196, 132, 1) 58%
-  );  
+  );   */
   z-index: 13px;
 `;

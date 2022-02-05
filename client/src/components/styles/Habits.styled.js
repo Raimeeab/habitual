@@ -8,7 +8,7 @@ import {
   TableHead,
   TableBody,
   TableRow,
-  TableCell,
+  TableCell, 
 } from "@mui/material";
 
 import DotLoader from "react-spinners/DotLoader";
@@ -80,10 +80,6 @@ export const HeaderText = styled.h3`
   font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
-`;
-
-export const StyledCardContent = styled(CardContent)`
-  outline: none;
 `;
 
 export const IconWrapper = styled.div`

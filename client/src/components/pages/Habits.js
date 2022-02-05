@@ -6,9 +6,7 @@ import AddHabitModal from "../HabitComponents/AddHabitModal";
 import bgVid from "../../assets/background.mp4";
 import { VideoBackground } from "../styles/Home.styled";
 import {
-  Card,
   CardContent,
-  Container,
   Table,
   TableHead,
   TableBody,
