@@ -30,9 +30,9 @@ const Habits = () => {
   const habits = data?.userById.habits || [];
 
 
-  const [addHabit, setAddHabit] = useState(false);
-  const handleOpenAddHabit = () => setAddHabit(true);
-  const handleCloseAddHabit = () => setAddHabit(false);
+  const [modal, setModal] = useState(false);
+  const handleOpenModal = () => setModal(true);
+  const handleCloseModal = () => setModal(false);
 
   return (
     <>
@@ -47,10 +47,12 @@ const Habits = () => {
               <Table sx={{ minWidth: 200 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="center">Habits</TableCell>
+                    <TableCell  style={{fontSize:"1.3rem"}} align="center">Habits</TableCell>
                     <TableCell align="center">Frequency</TableCell>
                     <TableCell align="center">
-                      <AddIcon fontSize="md" onClick={handleOpenAddHabit} />
+                      <AddIcon fontSize="large" 
+                      style={{pointer:"cursor", color: "#adc178"}}
+                      onClick={handleOpenModal} />
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -78,7 +80,7 @@ const Habits = () => {
           </Card>
         )}
       </Container>
-      <AddHabit addHabit={addHabit} handelClose={handleCloseAddHabit} />
+      <AddHabit modal={modal} handleCloseModal={handleCloseModal} />
     </>
   );
 };

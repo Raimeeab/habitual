@@ -11,7 +11,7 @@ import {
   HeaderText,
   SmallText,
   InnerContainer,
-} from "../styles/LoginForm.styled";
+} from "../styles/Form.styled";
 
 // ----- Holds all the porperties for the expanded/ collapsed state -----
 const backdropVariants = {

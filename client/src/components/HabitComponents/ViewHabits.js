@@ -22,7 +22,7 @@ const ViewHabits = ({ habits }) => {
             <TableCell align="center" component="th" scope="habit">
               {habit.name}
             </TableCell>
-            <TableCell align="center">{habit.frequency}{" "}a week</TableCell>
+            <TableCell align="center">{habit.frequency}</TableCell>
             <TableCell align="center">
               <DoneIcon fontSize="md" />
             </TableCell>

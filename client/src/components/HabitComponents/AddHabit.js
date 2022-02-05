@@ -1,37 +1,99 @@
 import React, { useState } from "react";
-import FormControl from "@mui/material/FormControl";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_HABIT } from "../../utils/mutations";
+import { Modal } from "@mui/material";
+import { Marginer } from "../../utils/Marginer";
+import {
+  ModalWrapper,
+  InnerContainer,
+  FormContainer,
+  FormWrapper,
+  Input,
+  AddBtn,
+  MutedText,
+} from "../styles/Form.styled";
 
-import { Modal, Typography, Box } from "@mui/material";
+const AddHabit = ({ modal, handleCloseModal }) => {
+  const navigate = useNavigate();
+  const [newHabit, setNewHabit] = useState({
+    name: "",
+    frequency: 1,
+    journal: "",
+  });
 
-const AddHabit = ({ addHabit, handleCloseAddHabit }) => {
+  const [addHabit, error] = useMutation(ADD_HABIT);
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewHabit({
+      ...newHabit,
+      [name]: value,
+    });
   };
+
+  const handleModalSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await addHabit({
+        variables: { ...newHabit },
+      });
+      console.log(addHabit)
+      navigate("/habits");
+      console.log(
+        "checking if addHabits mutation is called",
+        JSON.stringify.data
+      );
+    } catch {
+      console.error(e);
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <Modal
-        open={addHabit}
-        onClose={handleCloseAddHabit}
+        open={modal}
+        onClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
+        <ModalWrapper>
+          <InnerContainer>
+            <FormContainer onSubmit={handleModalSubmit}>
+              <Marginer direction="vertical" margin={5} />
+              <FormWrapper>
+                <MutedText>Habit name:</MutedText>
+                <Input
+                  type="habit"
+                  name="name"
+                  placeholder="'Meditate'"
+                  value={newHabit.name}
+                  onChange={handleChange}
+                />
+                <MutedText>Times per week:</MutedText>
+                <Input
+                  type="number"
+                  name="frequency"
+                  placeholder="1-7"
+                  value={newHabit.frequency}
+                  onChange={handleChange}
+                />
+                <MutedText>How will this habit improve your life?</MutedText>
+                <Input
+                  type="text"
+                  name="journal"
+                  placeholder="Journal"
+                  value={newHabit.journal}
+                  onChange={handleChange}
+                />
+                <Marginer direction="vertical" margin="1.6em" />
+                <AddBtn type="submit">Add</AddBtn>
+                {error && <MutedText>{error.message}</MutedText>}
+              </FormWrapper>
+            </FormContainer>
+          </InnerContainer>
+        </ModalWrapper>
       </Modal>
     </>
   );

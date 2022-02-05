@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// Allows for transition between the Login/ Signup forms 
+// Allows for transition between the Login/ Signup forms
 import { motion } from "framer-motion";
 
 // ----- Box Stylings -----
@@ -80,10 +80,10 @@ export const SmallText = styled.h5`
 `;
 
 export const InnerContainer = styled.div`
-width: 100%; 
-display: flex; 
-flex-direction: column;
-`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 // ----- Form Stylings -----
 
@@ -103,6 +103,7 @@ export const FormContainer = styled.form`
 `;
 
 export const MutedText = styled.p`
+margin: 0 8px;
   font-size: 13px;
   color: #a98467;
   font-weight: 500;
@@ -118,7 +119,7 @@ export const BoldLink = styled.a`
   text-align: center;
 
   &:hover {
-    color:#6c584c;
+    color: #6c584c;
   }
 `;
 
@@ -129,7 +130,7 @@ export const Input = styled.input`
   outline: none;
   height: 42px;
   padding: 0 10px;
-  margin-top: .1px;
+  margin-top: 0.1px;
   border-bottom: 1.4px solid transparent;
   transition: all 250ms ease-in-out;
   font-size: 12px;
@@ -151,11 +152,11 @@ export const Input = styled.input`
 
 export const SbmtButton = styled.button`
   width: 100%;
-  padding: 11px 40%; 
+  padding: 11px 40%;
   color: white;
-  font-size: 15px; 
+  font-size: 15px;
   font-weight: 600;
-  border: none; 
+  border: none;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
   transition: all 240ms ease-in-out;
@@ -167,7 +168,44 @@ export const SbmtButton = styled.button`
   );
   z-index: 14;
 
-  &:hover { 
-    filter: brightness(1.03)
+  &:hover {
+    filter: brightness(1.03);
+  }
+`;
+
+// ----- Habit modal Stylings -----
+
+export const ModalWrapper = styled.div`
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  background-color: #f0ead2;
+  /* box-align: center; */
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid #adc178;
+  }
+`;
+
+export const AddBtn = styled.button`
+  width: 100%;
+  font-weight: 300;
+  cursor: pointer;
+  color: white;
+  border: 2px white;
+  border-radius: 10px;
+  background: linear-gradient(
+    50deg,
+    rgba(173, 193, 120, 1) 35%,
+    rgba(149, 196, 132, 1) 58%
+  );
+
+  &:hover {
+    filter: brightness(1.03);
   }
 `;
