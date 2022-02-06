@@ -9,7 +9,7 @@ import {
   StyledCompleteHabit,
   StyledDeleteHabit,
   IconWrapper,
-  HeaderText
+  HeaderText,
 } from "../styles/Habits.styled";
 
 const ViewHabits = ({ habits }) => {
@@ -17,12 +17,12 @@ const ViewHabits = ({ habits }) => {
 
   const handleCompleteHabits = async (habitId) => {
     try {
-      console.log("check updateHabit: ", updateHabit); 
-      console.log("check habitID: ", habitId); 
+      console.log("check updateHabit: ", updateHabit);
+      console.log("check habitID: ", habitId);
       const date = await updateHabit({
         variables: {
-          _id: habitId,
-        },
+          id: habitId,
+        }
       });
 
       console.log(date);

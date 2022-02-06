@@ -52,13 +52,12 @@ const AddHabitModal = ({ modal, handleCloseModal }) => {
       console.log( "DATA", data)
       data.addHabit = [result.data.addHabit, ...data.addHabit]
       proxy.writeQuery({query: ADD_HABIT, data })
-      console.log("data.userById", data.userById)
+      console.log("data.userById", data.addHabit)
       setNewHabit({
         name: "", 
         frequency: "", 
         journal: ""
-      })
-      navigate("/habits")
+      });
     }
   }
   ); 
@@ -68,6 +67,10 @@ const AddHabitModal = ({ modal, handleCloseModal }) => {
     addHabit({variables: {
       ...newHabit
     }})
+
+
+    window.location.assign("/habits"); 
+    navigate("/habits");
   };
 
 
