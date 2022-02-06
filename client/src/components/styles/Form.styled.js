@@ -183,8 +183,7 @@ export const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400;
-  background: rgb(216,226,204);
-background: radial-gradient(circle, rgba(216,226,204,1) 0%, rgba(255,255,255,1) 100%);
+  background-color: #fffff2;
   /* box-align: center; */
 
   &:focus {

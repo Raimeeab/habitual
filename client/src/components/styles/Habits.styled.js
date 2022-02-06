@@ -25,7 +25,7 @@ export const StyledDotLoader = styled(DotLoader)`
 
 export const StyledAddIcon = styled(AddIcon)`
   cursor: pointer;
-  border: 1px solid;
+  border: none;
   border-radius: 5px;
   box-shadow: #6c584c;
   font-size: large;
@@ -80,6 +80,9 @@ export const HeaderText = styled.h3`
   font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
+    text-transform: uppercase;
+    font-size: large;
+    letter-spacing: 0.01em;
 `;
 
 export const IconWrapper = styled.div`

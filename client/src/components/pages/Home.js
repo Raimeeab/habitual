@@ -11,23 +11,9 @@ const Home = () => {
         <VideoBackground loop autoPlay>
           <source src={bgVid} type="video/mp4" />
         </VideoBackground>
-        <BackgroundImage src={logo} />
+        <BackgroundImage src={logo} alt="Habitual Logo" />
         <GetStarted variant="contained" size="large" href="/login">Get started </GetStarted>
       </HeroContainer>
-      {/* <HeroContainer>
-        <video loop autoPlay alt="Habitual logo" className="backgroundVideo">
-          <source src={bgVid} type="video/mp4" />
-        </video>
-        <BackgroundImage img={logo} alt="Habitual logo">
-        <TextContainer>
-          <Welcome> Welcome to Habitual </Welcome>
-          <Text>Habit tracking, made easy</Text>
-          <StyledButton variant="contained" size="small" href="/login">
-            Get Started
-          </StyledButton>
-        </TextContainer>
-        </BackgroundImage>
-      </HeroContainer> */}
     </>
   );
 };

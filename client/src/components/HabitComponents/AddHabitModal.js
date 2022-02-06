@@ -16,70 +16,60 @@ import {
 } from "../styles/Form.styled";
 
 const AddHabitModal = ({ modal, handleCloseModal }) => {
-  const navigate = useNavigate();
+
+  const navigate = useNavigate(); 
+
   const [newHabit, setNewHabit] = useState({
-    name: "",
-    frequency: "",
+    name: "", 
+    frequency: "", 
     journal: "",
-  });
+  }); 
 
-  // , {
-  //   update(cache, { data: { addHabit } }) {
-  //     try {
-  //       const { habits } = cache.readQuery({ query: QUERY_USER});
-
-  //       cache.writeQuery({
-  //         query: QUERY_USER,
-  //         data: { habits: [newHabit, ...habits]},
-  //       });
-  //     } catch (e) {
-  //       console.log(e)
-  //     }
-  //   },
-  // }
+  console.log("-----ADDHABITMODAL FUNC")
+  console.log("USESTATE, newHabit:", newHabit); 
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    console.log("name", name);
-    const value = e.target.value;
-    console.log("value", value);
+    const {name, value} = e.target; 
+
+    console.log("-----HANDLE CHANGE FUNCTION");
+    console.log("name", name); 
+    console.log("value", value); 
     setNewHabit({
-      ...newHabit,
-      [name]: value,
+      ...newHabit, 
+      [name]: value
     });
   };
 
-  const [addHabit, error] = useMutation(ADD_HABIT, {
+  const [addHabit, {error}] = useMutation(ADD_HABIT, {
     update(proxy, result) {
-      console.log(result); 
+      console.log("---- USE MUTATION, ADDHABIT FUNC, ")
+      console.log("RESULT", result);
+      console.log("PROXY", proxy)
 
       const data = proxy.readQuery({
-        query: QUERY_USER
-      }); 
-
-      data.addHabit = [result.data.addHabit, ...data.addHabit]; 
-      proxy.writeQuery({query: QUERY_USER, data})
-      setNewHabit({name: "", frequency: "", journal: ""})
+        query: ADD_HABIT
+      });
+      console.log( "DATA", data)
+      data.addHabit = [result.data.addHabit, ...data.addHabit]
+      proxy.writeQuery({query: ADD_HABIT, data })
+      console.log("data.userById", data.userById)
+      setNewHabit({
+        name: "", 
+        frequency: "", 
+        journal: ""
+      })
+      navigate("/habits")
     }
-  });
+  }
+  ); 
 
   const handleModalSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await addHabit({
-        variables: { ...newHabit },
-      });
-      console.log(addHabit);
-      navigate("/habits");
-      console.log(
-        "checking if addHabits mutation is called",
-        JSON.stringify.data
-      );
-    } catch {
-      console.error(e);
-      console.log(e);
-    }
+    addHabit({variables: {
+      ...newHabit
+    }})
   };
+
 
   return (
     <>

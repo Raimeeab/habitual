@@ -8,7 +8,8 @@ import {
   StyledTableBody,
   StyledCompleteHabit,
   StyledDeleteHabit,
-  IconWrapper
+  IconWrapper,
+  HeaderText
 } from "../styles/Habits.styled";
 
 const ViewHabits = ({ habits }) => {
@@ -36,7 +37,7 @@ const ViewHabits = ({ habits }) => {
       <TableBody>
         <TableRow>
           <TableCell>
-            <BodyText>No habits added yet</BodyText>
+            <HeaderText>No habits added yet</HeaderText>
           </TableCell>
         </TableRow>
       </TableBody>

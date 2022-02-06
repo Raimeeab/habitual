@@ -28,6 +28,7 @@ export const HeroContainer = styled.div`
   display: flex;
   min-height: auto;
   justify-content: center;
+  margin-top: 90px;
 `;
 
 export const VideoBackground = styled.video`
@@ -42,10 +43,8 @@ export const VideoBackground = styled.video`
   object-fit: cover;
 
   @media (max-width: 760px) {
-    #myvid {
       width: 100%; /* actually wider than viewport */
       height: 100%;
-    }
   }
 `;
 
@@ -59,7 +58,7 @@ export const BackgroundImage = styled.img`
   background-size: cover;
 
   @media (max-width: 1000px) {
-    z-index: -2;
+    display: none;
   }
 `;
 
@@ -92,4 +91,8 @@ export const GetStarted = styled(Button)`
     rgba(149, 196, 132, 1) 58%
   );   */
   z-index: 13px;
+
+  &:hover {
+    text-decoration: none;
+  }
 `;

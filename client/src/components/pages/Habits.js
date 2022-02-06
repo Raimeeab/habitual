@@ -18,6 +18,7 @@ import {
   StyledDotLoader,
   StyledAddIcon,
   StyledCard,
+  HeaderText
 } from "../styles/Habits.styled";
 // import DatePicker from "../HabitComponents/DatePicker";
 
@@ -52,8 +53,8 @@ const Habits = () => {
               <Table sx={{ minWidth: 200 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="left">Habits</TableCell>
-                    <TableCell align="left">Frequency</TableCell>
+                    <TableCell align="left"><HeaderText>Habits</HeaderText></TableCell>
+                    <TableCell align="left"><HeaderText>Frequency</HeaderText></TableCell>
                     <TableCell align="center">
                       <StyledAddIcon onClick={handleOpenModal} />
                     </TableCell>
