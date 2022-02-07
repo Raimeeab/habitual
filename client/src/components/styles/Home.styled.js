@@ -21,6 +21,17 @@ export const TextContainer = styled.div`
   z-index: 10px;
 `;
 
+export const ContentWrapper = styled.div`
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width:760px){
+    flex-direction: column;
+  }
+`; 
+
 
 // NEW STYLINGS :
 
@@ -31,10 +42,42 @@ export const HeroContainer = styled.div`
   margin-top: 90px;
 `;
 
+export const BackgroundGif = styled.img`
+ position: fixed;
+  background-image: url(${(props) => props.img});
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+ height: 100%;
+  background-position: center;
+  object-fit: cover;
+
+`
+
+export const Background = styled.img`
+  position: fixed;
+  background-image: url(${(props) => props.img});
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-position: center;
+  object-fit: contain;
+
+  @media (max-width: 760px) {
+      width: 100%; /* actually wider than viewport */
+      height: 100%;
+  }
+`;
+
 export const VideoBackground = styled.video`
   position: fixed;
   background-clip: url(${(props) => props.video});
-  top: 0px;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -51,14 +94,14 @@ export const VideoBackground = styled.video`
 export const BackgroundImage = styled.img`
   justify-content: center;
   width: 50%;
-  height: 50%;
+  height: auto;
   z-index: 1;
   position: relative;
   opacity: 90%;
   background-size: cover;
 
-  @media (max-width: 1000px) {
-    display: none;
+  @media (max-width:760px){
+    width: 100%;
   }
 `;
 
@@ -66,12 +109,11 @@ export const GetStarted = styled(Button)`
   flex-direction: column;
   height: 60px;
   font-size: 50px;
-  font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Titillium Web", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
   padding: 10px 60px;
   justify-content: center;
-
   color: white;
   font-weight: 900;
   border: none;
@@ -84,15 +126,10 @@ export const GetStarted = styled(Button)`
     rgba(204, 223, 153, 1) 0%,
     rgba(173, 197, 124, 1) 100%
   );
-  /* background: rgb(173, 193, 120);
-  background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 1) 35%,
-    rgba(149, 196, 132, 1) 58%
-  );   */
   z-index: 13px;
 
   &:hover {
     text-decoration: none;
+    color: white;
   }
 `;

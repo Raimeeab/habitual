@@ -23,7 +23,7 @@ const habitSchema = new Schema(
       type: String,
       // Journaling is optional
       required: false,
-      minlength: 3,
+      // minlength: 3,
       maxlength: 280
     },
     completedHabits: [completedHabitsSchema],

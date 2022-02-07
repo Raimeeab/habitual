@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import DeleteHabit from "./DeleteHabit";
 import { useMutation } from "@apollo/client";
 import { COMPLETE_HABIT } from "../../utils/mutations";
 
@@ -17,8 +18,6 @@ const ViewHabits = ({ habits }) => {
 
   const handleCompleteHabits = async (habitId) => {
     try {
-      console.log("check updateHabit: ", updateHabit);
-      console.log("check habitID: ", habitId);
       const date = await updateHabit({
         variables: {
           id: habitId,
@@ -29,6 +28,11 @@ const ViewHabits = ({ habits }) => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleDelete = async (e)=> {
+    e.preventDefault(); 
+    window.location.assign("/habits"); 
   };
 
   if (!habits.length) {
@@ -62,7 +66,8 @@ const ViewHabits = ({ habits }) => {
                 <StyledCompleteHabit
                   onClick={() => handleCompleteHabits(habit._id)}
                 />{" "}
-                <StyledDeleteHabit />
+                {/* <StyledDeleteHabit /> */}
+                <DeleteHabit habitId={habit.id} onClick={handleDelete}/>
               </IconWrapper>
             </TableCell>
           </TableRow>

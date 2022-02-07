@@ -177,13 +177,14 @@ export const SbmtButton = styled.button`
 
 export const ModalWrapper = styled.div`
   position: absolute;
+  border: 1px solid #adc178;
   border-radius: 5px;
   padding: 10px 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400;
-  background-color: #fffff2;
+  background-color: transparent;
   /* box-align: center; */
 
   &:focus {
@@ -209,3 +210,12 @@ export const AddBtn = styled.button`
     filter: brightness(1.03);
   }
 `;
+
+export const ModalText = styled.h5`
+  margin: 7px 2px;
+  font-size: 20px;
+color: white;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+`

@@ -5,7 +5,6 @@
 ## Table of Content 
 
 * [Description](#description)
-* [User-story](#user)
 * [Technlogies](#technologies)
 * [Usage](#usage)
 * [Installation](#installation)
@@ -16,36 +15,28 @@
 
 <a name="description"></a>
 ## 📝 Description
-This is a habit tracker application that allows users to add habits, set frequency and log completed habits everyday. 
+This is a habit tracker application that allows users to add habits, set frequency and log completed habits everyday. It's inspired by James Clear’s book Atomic Habits that highlights how incremental changes to your everyday life can lead to remarkable results in the long run. Each person has their own set of goals and this allows users to see the progress and their change using their own data & input. 
 
 Link to the [app]()
 
 ![app-demo]()
 
-<a name="user"></a>
-## 🕹 User-story
-`As a user,` <br>
-`WHEN I start the app, I am prompted to login or create an account.` \
-`WHEN I create an account,` \
-`THEN I am asked to provide a username, email and password.` \
-`WHEN I am successfully logged in,` \
-`THEN I am taken to the habits page.` \
-`WHEN I click on add habit, ` \
-`THEN I am prompted to clarify if I want to make or break this habit, how many times a week I would like to complete this habit, & write a small description of how this habit will better my daily life.` \
-`WHEN I set up my habit` \
-`THEN I am presented with a list of my habits of current day` \
-`WHEN I mark a habit as complete,` \
-`THEN complete button turns green and will be disabled.` \
-`WHEN I click on options button for habit,` \
-`THEN I am presented with skip, edit, view progress` \
-`WHEN I click on edit,` \
-`THEN I am able to edit habit name and frequency.`
-`WHEN I click on the today button,` \
-`THEN I view my previous logs. If habit is complete, habit will be green; if habit is skipped it will be red` \
-
-
 <a name="technologies"></a>
 ## 🕹 Technologies used 
+- Apollo Client
+- React 
+- React router dom
+- Material UI
+- React Bootstrap 
+- Styled Components 
+- MongoDB
+- Mongoose 
+- Apollo Server
+- Express 
+- Graphql
+- JWT 
+- dotenv
+- bcyrpt 
 
 
 <a name="installation"></a>
@@ -55,22 +46,25 @@ Link to the [app]()
 
 ![git-clone]()
 
-4. Run `npm install` to download all the required dependencies and seeds
+2. Set up an env file with 
+
+3. In the root directory, run `npm install` & `npm run seed` to download all the required dependencies and seeds
 
 ![install]()
 
-6. To start the application, run:
+4. To start the application, run:
 
-    - `npm run start`
+    - `npm run develop`
 
 ![start]()
 
+5. To test mutations head to ``
 
-![insomina-demo]()
+![graphql-demo]()
 
 <a name="usage"></a>
 ## 🖥 Usage 
-
+User can log/ sign up to the app & add habits. When clicking the tick, they set their habit to complete for the day. If they click the remove tab they delete their habit permanently. 
 
 <a name="contributors"></a>
 ## 👥 Contributors

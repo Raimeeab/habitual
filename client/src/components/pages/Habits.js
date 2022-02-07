@@ -3,8 +3,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
 import AddHabitModal from "../HabitComponents/AddHabitModal";
-import bgVid from "../../assets/background.mp4";
-import { VideoBackground } from "../styles/Home.styled";
+import bgGif from "../../assets/background.gif"
+
+import { BackgroundGif } from "../styles/Home.styled";
 import {
   CardContent,
   Table,
@@ -25,6 +26,7 @@ import {
 import Auth from "../../utils/auth";
 
 const Habits = () => {
+  
   const { loading, data } = useQuery(QUERY_USER);
 
   // Confirm user is logged in
@@ -40,17 +42,17 @@ const Habits = () => {
   return (
     <>
       <StyledContainer maxWidth="sm">
-        <VideoBackground loop autoPlay>
-          <source src={bgVid} type="video/mp4" />
-        </VideoBackground>
+        <BackgroundGif src={bgGif}>
+          {/* <source src={bgGif} type="video/mp4" /> */}
+        </BackgroundGif>
         {isLoggedIn ? (
           <StyledCard
             className="root"
             variant="outlined"
             style={{ marginTop: 35 }}
           >
-            <CardContent>
-              <Table sx={{ minWidth: 200 }} aria-label="simple table">
+            <CardContent disabled sx={{backgroundColor:"transparent"}}>
+              <Table disabled sx={{ minWidth: 200, backgroundColor:"transparent" }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="left"><HeaderText>Habits</HeaderText></TableCell>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import bgVid from "../../assets/background.mp4";
-
+import bgGif from "../../assets/background.gif"
 import LoginForm from "../FormComponents/LoginForm";
 import SignupForm from "../FormComponents/SignupForm";
 import { AccountContext } from "../FormComponents/accountContext";
@@ -15,7 +14,7 @@ import {
   InnerContainer,
 } from "../styles/Form.styled";
 
-import { VideoBackground } from "../styles/Home.styled";
+import { BackgroundGif } from "../styles/Home.styled";
 
 // ----- Holds all the porperties for the expanded/ collapsed state -----
 const backdropVariants = {
@@ -72,9 +71,9 @@ const AccountBox = (props) => {
     <>
     
     <AccountContext.Provider value={contextValue}>
-    <VideoBackground loop autoPlay>
-    <source src={bgVid} type="video/mp4" />
-</VideoBackground>
+    <BackgroundGif src={bgGif}>
+    {/* <source src={bgGif} type="video/mp4" /> */}
+</BackgroundGif>
       <BoxWrapper>
         <BoxContainer>
           <TopContainer>

@@ -1,18 +1,21 @@
 import React from "react";
 import logo from "../../assets/whiteLogo.png";
-import bgVid from "../../assets/background.mp4";
+import bgGif from "../../assets/background.gif"
 
-import { BackgroundImage, HeroContainer, VideoBackground, GetStarted } from "../styles/Home.styled";
+import { ContentWrapper, BackgroundImage,BackgroundGif, HeroContainer, GetStarted } from "../styles/Home.styled";
 
 const Home = () => {
   return (
     <>
       <HeroContainer>
-        <VideoBackground loop autoPlay>
-          <source src={bgVid} type="video/mp4" />
-        </VideoBackground>
+        {/* <Background src={background} alt="Background image"/ > */}
+        <BackgroundGif src={bgGif}>
+          {/* <source src={bgGif} type="video/mp4" /> */}
+        </BackgroundGif>
+        <ContentWrapper>
         <BackgroundImage src={logo} alt="Habitual Logo" />
         <GetStarted variant="contained" size="large" href="/login">Get started </GetStarted>
+        </ContentWrapper>
       </HeroContainer>
     </>
   );
