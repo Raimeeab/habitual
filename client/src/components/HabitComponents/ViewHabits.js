@@ -1,7 +1,6 @@
 import React from "react";
-import DeleteHabit from "./DeleteHabit";
-import { useMutation } from "@apollo/client";
-import { COMPLETE_HABIT } from "../../utils/mutations";
+import { useMutation, useNavigate } from "@apollo/client";
+import { COMPLETE_HABIT, REMOVE_HABIT } from "../../utils/mutations";
 
 import { TableBody, TableRow, TableCell } from "@mui/material";
 import {
@@ -23,16 +22,33 @@ const ViewHabits = ({ habits }) => {
           id: habitId,
         }
       });
-
+      window.location.assign("/habits");  
+      
       console.log(date);
     } catch (error) {
       console.error(error);
     }
   };
 
+  const [deleteHabit] = useMutation(REMOVE_HABIT ); 
+
+  const handleDeleteHabits = async (habitId) => {
+    try {
+
+      await deleteHabit({
+        variables: {
+          _id: habitId,
+        }
+      });
+      // window.location.assign("/habits");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const handleDelete = async (e)=> {
     e.preventDefault(); 
-    window.location.assign("/habits"); 
+   
   };
 
   if (!habits.length) {
@@ -50,7 +66,9 @@ const ViewHabits = ({ habits }) => {
   return (
     <>
       <StyledTableBody>
-        {habits.map((habit) => (
+        {habits.map((habit) =>
+        // hasBeenCompleted = habnit.compleetedDates has today's date
+         (
           <TableRow
             key={habit._id}
             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -66,8 +84,7 @@ const ViewHabits = ({ habits }) => {
                 <StyledCompleteHabit
                   onClick={() => handleCompleteHabits(habit._id)}
                 />{" "}
-                {/* <StyledDeleteHabit /> */}
-                <DeleteHabit habitId={habit.id} onClick={handleDelete}/>
+                <StyledDeleteHabit onClick={() => handleDeleteHabits(habit._id)} />
               </IconWrapper>
             </TableCell>
           </TableRow>

@@ -18,7 +18,8 @@ import AccountBox from "./components/pages/AccountForm";
 
 // Construct main GraphQl API endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql",
+    uri: "/graphql",
+  // uri: "http://localhost:3001/graphql",
 });
 
 // Contrust request middleware 
