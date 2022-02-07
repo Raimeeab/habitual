@@ -58,7 +58,7 @@ export const HeroLogo = styled.img`
  
   @media (max-width: 600px) {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 100px;
   } 
 
   @media (max-width: 450) {
