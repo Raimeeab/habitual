@@ -46,11 +46,14 @@ export const BackDrop = styled(motion.div)`
   transform: rotate(60deg);
   top: -290px;
   left: -70px;
-  background: rgb(173, 193, 120);
+  background: rgb(174, 213, 120);
   background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 1) 35%,
-    rgba(149, 196, 132, 1) 58%
+    90deg,
+    rgba(174, 213, 120, 1) 5%,
+    rgba(160, 209, 143, 1) 26%,
+    rgba(104, 192, 152, 1) 64%,
+    rgba(54, 177, 104, 1) 87%,
+    rgba(90, 156, 108, 1) 100%
   );
 `;
 
@@ -103,7 +106,7 @@ export const FormContainer = styled.form`
 `;
 
 export const MutedText = styled.p`
-margin: 0 8px;
+  margin: 0 8px;
   font-size: 13px;
   color: #a98467;
   font-weight: 500;
@@ -113,7 +116,7 @@ margin: 0 8px;
 
 export const BoldLink = styled.a`
   font-size: 13px;
-  color: #adc178;
+  color: #68c098;
   font-weight: 500;
   text-decoration: none;
   text-align: center;
@@ -146,7 +149,7 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid #adc178;
+    border-bottom: 2px solid #68c098;
   }
 `;
 
@@ -160,11 +163,14 @@ export const SbmtButton = styled.button`
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
   transition: all 240ms ease-in-out;
-  background: rgb(173, 193, 120);
+  background: rgb(174, 213, 120);
   background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 1) 35%,
-    rgba(149, 196, 132, 1) 58%
+    90deg,
+    rgba(174, 213, 120, 1) 5%,
+    rgba(160, 209, 143, 1) 26%,
+    rgba(104, 192, 152, 1) 64%,
+    rgba(54, 177, 104, 1) 87%,
+    rgba(90, 156, 108, 1) 100%
   );
   z-index: 14;
 
@@ -177,7 +183,7 @@ export const SbmtButton = styled.button`
 
 export const ModalWrapper = styled.div`
   position: absolute;
-  border: 1px solid #adc178;
+  border: 1px solid #68c098;
   border-radius: 5px;
   padding: 10px 10px;
   top: 50%;
@@ -189,7 +195,7 @@ export const ModalWrapper = styled.div`
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid #adc178;
+    border-bottom: 2px solid #68c098;
   }
 `;
 
@@ -214,8 +220,8 @@ export const AddBtn = styled.button`
 export const ModalText = styled.h5`
   margin: 7px 2px;
   font-size: 20px;
-color: white;
+  color: white;
   font-weight: 500;
   text-decoration: none;
   text-align: center;
-`
+`;

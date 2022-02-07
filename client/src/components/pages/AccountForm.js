@@ -14,7 +14,8 @@ import {
   InnerContainer,
 } from "../styles/Form.styled";
 
-import { BackgroundGif } from "../styles/Home.styled";
+import { BackgroundImg } from "../styles/Home.styled";
+import bgImage from "../../assets/background-image.png"; 
 
 // ----- Holds all the porperties for the expanded/ collapsed state -----
 const backdropVariants = {
@@ -70,9 +71,7 @@ const AccountBox = (props) => {
   return (
     <>
       <AccountContext.Provider value={contextValue}>
-        <BackgroundGif src={bgGif}>
-          {/* <source src={bgGif} type="video/mp4" /> */}
-        </BackgroundGif>
+        <BackgroundImg src={bgImage}/>
         <BoxWrapper>
           <BoxContainer>
             <TopContainer>

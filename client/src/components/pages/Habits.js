@@ -3,9 +3,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
 import AddHabitModal from "../HabitComponents/AddHabitModal";
-import bgGif from "../../assets/background.gif"
+import bgImage from "../../assets/background-image.png"; 
 
-import { BackgroundGif } from "../styles/Home.styled";
+import { BackgroundImg } from "../styles/Home.styled";
 import {
   CardContent,
   Table,
@@ -42,9 +42,7 @@ const Habits = () => {
   return (
     <>
       <StyledContainer maxWidth="sm">
-        <BackgroundGif src={bgGif}>
-          {/* <source src={bgGif} type="video/mp4" /> */}
-        </BackgroundGif>
+        <BackgroundImg src={bgImage} />
         {isLoggedIn ? (
           <StyledCard
             className="root"

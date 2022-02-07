@@ -1,5 +1,5 @@
 :root {
-  --highlight-colour: #adc178;
+  --highlight-colour: #68c098;
   --text-colour: #6c584c;
   /* f0ead2 */
   --background-colour: white;
@@ -29,4 +29,6 @@ background: radial-gradient(circle, rgba(216,226,204,1) 0%, rgba(255,255,255,1) 
 
 a {
   text-decoration: none;
+  justify-content: center;
+  align-items: center;
 }

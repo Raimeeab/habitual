@@ -15,19 +15,19 @@ const Styles = styled.div`
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bolder;
-    color: #adc178;
+    color: #68c098;
     justify-content: flex-end;
-    text-shadow: .5px .5px white;
+    text-shadow: .5px .6px #6c584c;
   }
 
   .navbarLinks {
     margin-left: 10px;
     text-decoration: none;
-    color: white;
+    color: #6c584c;
 
     &:hover {
       transition: all 0.5 ease-in-out;
-      border-bottom: 3px solid #adc178;
+      border-bottom: 3px solid #68c098
     }
   }
 `;

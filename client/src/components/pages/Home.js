@@ -1,25 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/whiteLogo.png";
-import bgGif from "../../assets/background.gif"; 
-import bgImage from "../../assets/background-image.png"; 
+import bgImage from "../../assets/background-image.png";
 
-import { ContentWrapper, HeroBackground, BackgroundImage,BackgroundGif, HeroContainer, GetStarted } from "../styles/Home.styled";
+import {
+  HeroLogo,
+  BackgroundImg,
+  HeroContainer,
+} from "../styles/Home.styled";
 
 const Home = () => {
+  let navigate = useNavigate();
+  function getStarted() {
+    navigate('/login')
+  }
+ 
   return (
     <>
       <HeroContainer>
-        {/* <HeroBackground> */}
-        {/* <Background src={background} alt="Background image"/ > */}
-        <BackgroundGif src={bgImage}>
-          {/* <source src={bgGif} type="video/mp4" /> */}
-        </BackgroundGif>
-
-        <ContentWrapper>
-        <BackgroundImage src={logo} alt="Habitual Logo" />
-        <GetStarted variant="contained" size="large" href="/login">Get started </GetStarted>
-        </ContentWrapper>
-        {/* </HeroBackground> */}
+        <BackgroundImg src={bgImage} />
+        <HeroLogo src={logo} alt="Habitual Logo" onClick={getStarted} />
       </HeroContainer>
     </>
   );
