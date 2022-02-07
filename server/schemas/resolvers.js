@@ -10,9 +10,7 @@ const resolvers = {
   Query: {
     // Find all users
     users: async () => {
-      console.log("users function running");
       const userData = await User.find({}).populate("habits");
-      console.log(userData);
 
       return userData;
     },
@@ -63,8 +61,6 @@ const resolvers = {
       const user = await User.findOne({ username });
       const correctPw = await user.isCorrectPassword(password);
 
-      console.log(correctPw);
-
       // If email or password is incorrect, throw the same error
       if (!user || !correctPw) {
         throw new AuthenticationError("Incorrect login credentials");
@@ -76,12 +72,9 @@ const resolvers = {
     },
     // CREATE habit
     addHabit: async (parent, { name, frequency, journal }, context) => {
-      console.log("ADD HABIT=================================");
       let newHabit = { name, frequency, journal };
-      // console.log("Hitting addHabit", newHabit)
       // Auth user
       if (context.user) {
-        console.log("CONTEXT USER", context.user);
         // Get user info from context
         const findUser = await User.findOneAndUpdate(
           // Add new habit into user model
@@ -93,8 +86,7 @@ const resolvers = {
             new: true,
           }
         );
-        // console.log("habits: newHabit => ", habits, newHabit)
-        console.log("findUser after addToSet", findUser);
+
         // TODO: User can't have same habit name entered twice
 
         if (!findUser) {
@@ -102,7 +94,6 @@ const resolvers = {
         } else {
           // Retrieve habits array from user & return the new habit
           return findUser.habits.find((habit) => {
-            console.log("habit.name === habit", habit.name, "===", name);
             return habit.name === name;
           });
         }
@@ -132,7 +123,6 @@ const resolvers = {
     },
     // CREATE timestamp when habit is completed
     completedHabit: async (parent, { _id }, context) => {
-      console.log("argument from user: ", _id);
       if (context.user) {
         // create a new timestamp
         const now = Date.now();
@@ -162,11 +152,6 @@ const resolvers = {
     },
     // UPDATE habit - NOT MVP !
     updateHabit: async (parent, args, context) => {
-      console.log("UPDATE HABITS=================================");
-      console.log(args);
-
-      // let updateHabit = { name, frequency, journal };
-      // console.log("update Habit object", updateHabit);
 
       if (context.user) {
         // Find the user by id (auth)
@@ -174,11 +159,9 @@ const resolvers = {
           _id: context.user._id,
         });
 
-        // console.log("habit id:", _id);
         const habit = user.habits.find((habit) => {
           return habit._id === args._id;
         });
-        console.log("habit to update: ", habit);
 
         habit.name = args.name;
         habit.frequency = args.frequency;

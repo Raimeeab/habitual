@@ -40,17 +40,14 @@ const SignupForm = () => {
   // Submit form
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
     try {
       const { data } = await signUp({
         variables: { userInput: { ...formState } },
       });
-      console.log("checking if signup fetch is called:", JSON.stringify(data));
       await Auth.login(data.signUp.token);
       navigate("/habits");
     } catch (e) {
       console.error(e);
-      console.log(e);
     }
   };
   
