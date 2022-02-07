@@ -44,6 +44,7 @@ const AddHabitModal = ({ modal, handleCloseModal }) => {
       },
     });
     handleCloseModal();
+    setNewHabit({})
   };
 
   return (

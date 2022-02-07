@@ -15,7 +15,7 @@ export const HeroContainer = styled.div`
   display: flex;
   min-height: auto;
   justify-content: center;
-  margin-top: 90px;
+  /* margin-top: 90px; */
 `;
 
 export const BackgroundImg = styled.img`
@@ -39,7 +39,7 @@ export const HeroLogo = styled.img`
   z-index: 1;
   position: relative;
   opacity: 85%;
-  background-size: cover;
+  background-size: contain;
 
   &:hover {
     cursor: pointer;
@@ -47,12 +47,21 @@ export const HeroLogo = styled.img`
     opacity: 100%;
   }
 
-  @media (min-width: 1000px) {
-    width: 60%;
-  }
+   @media (max-width: 950px) {
+     margin-top: 20px;
+    width: 70%;
+  } 
 
   @media (max-width: 760px) {
+    width: 80%;
+  } 
+ 
+  @media (max-width: 600px) {
     width: 100%;
     margin-top: 50px;
+  } 
+
+  @media (max-width: 450) {
+    margin-top: 200px;
   }
 `;
