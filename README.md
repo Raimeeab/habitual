@@ -1,7 +1,7 @@
 <img alt="GitHub Followers" src="https://img.shields.io/github/followers/Raimeeab"> <img alt="GitHub License" src="https://img.shields.io/apm/l/vim-mode"> <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/Raimeeab/habitual"> <img alt="GitHub Commit Activity" src="https://img.shields.io/github/commit-activity/w/Raimeeab/habitual">
 
-# ![logo](/client/src/assets/official-logo.png =30x30) Habitual
 
+# ![logo](/client/src/assets/small-logo.png)  Habitual
 ---
 
 ## Table of Content
@@ -54,21 +54,23 @@ Link to the [app](https://habitual-ra.herokuapp.com/).
 
 ![git-clone](./client/src/assets//demos/git-clone.gif)
 
-2. Set up an env file with with a JWT secret token in the server folder.
+2. Set up an env file with with a JWT secret token in the server folder. 
 
 ![env-file](./client/src/assets/demos/env.png)
 
-3. In the root directory, run `npm install` & `npm run seed` to download all the required dependencies and seeds.
+3. Set up your mongoDB locally - [how to guide](https://docs.mongodb.com/guides/server/install/)
+
+4. In the root directory, run `npm install` & `npm run seed` to download all the required dependencies and seeds.
 
 ![install](./client/src/assets//demos/git-install.gif)
 
-4. To start the application, run:
+5. To start the application, run:
 
    - `npm run develop`
 
 ![start](/client/src/assets/demos/start.gif)
 
-5. To test mutations head to `http://localhost:3001/graphql//`
+6. To test mutations head to `http://localhost:3001/graphql//`
 
 ![graphql-demo](/client/src/assets/demos/gql-demo.gif)
 
