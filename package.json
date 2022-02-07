@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "apollo-server-express": "^2.15.0",
-    "global-agent": "^3.0.0"
+    "global-agent": "^3.0.0",
+    "serve": "^13.0.2"
   }
 }
