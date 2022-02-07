@@ -1,5 +1,5 @@
 import React from "react";
-import { useMutation, useNavigate } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { COMPLETE_HABIT, REMOVE_HABIT } from "../../utils/mutations";
 import { isSameDay } from "date-fns";
 import { TableBody, TableRow, TableCell } from "@mui/material";
@@ -54,14 +54,9 @@ const ViewHabits = ({ habits }) => {
           _id: habitId,
         },
       });
-      // window.location.assign("/habits");
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const handleDelete = async (e) => {
-    e.preventDefault();
   };
 
   if (!habits.length) {
@@ -69,8 +64,8 @@ const ViewHabits = ({ habits }) => {
     return (
       <TableBody>
         <TableRow>
-          <TableCell>
-            <HeaderText>No habits added yet</HeaderText>
+          <TableCell size="sm" style={{ width: 200, fontSize:"1rem", fontWeight: "500", border: "none" }}>
+            No habits added yet
           </TableCell>
         </TableRow>
       </TableBody>
@@ -80,23 +75,18 @@ const ViewHabits = ({ habits }) => {
     <>
       <StyledTableBody>
         {habits.map((habit) => (
-          // hasBeenCompleted = habnit.compleetedDates has today's date
           <TableRow
             key={habit._id}
             sx={{
               "&:last-child td, &:last-child th": { border: 0 },
-              "background-color": habitCompletedToday(habit) ? "red" : "none",
+              "background-color": habitCompletedToday(habit) ? "#68c098" : "none",
             }}
           >
             <TableCell align="center" component="th" scope="habit">
-              <BodyText>{habit.name}</BodyText>
+            {habit.name}
             </TableCell>
             <TableCell align="center">
-              {habitCompletedToday(habit) ? (
-                <StrikeBodyText style>{habit.frequency}{" "}per week</StrikeBodyText>
-              ) : (
-                <BodyText style>{habit.frequency}</BodyText>
-              )}
+                {habit.frequency}
             </TableCell>
             <TableCell align="center">
               <IconWrapper>

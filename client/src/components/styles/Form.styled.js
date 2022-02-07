@@ -142,11 +142,6 @@ export const Input = styled.input`
     color: rgba(200, 200, 200, 1);
   }
 
-  /* Add border bottom to the last element */
-  /* &:not(:last-of-type) {
-    border-bottom: 2px solid rgba(200, 200, 200, 0.4);
-  } */
-
   &:focus {
     outline: none;
     border-bottom: 2px solid #68c098;
@@ -190,7 +185,13 @@ export const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background: rgb(243, 255, 241);
+  background: linear-gradient(
+    0deg,
+    rgba(243, 255, 241, 0.1783088235294118) 0%,
+    rgba(243, 255, 241, 1) 99%
+  );
   /* box-align: center; */
 
   &:focus {
@@ -206,10 +207,14 @@ export const AddBtn = styled.button`
   color: white;
   border: 2px white;
   border-radius: 10px;
+  background: rgb(174, 213, 120);
   background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 1) 35%,
-    rgba(149, 196, 132, 1) 58%
+    90deg,
+    rgba(174, 213, 120, 1) 5%,
+    rgba(160, 209, 143, 1) 26%,
+    rgba(104, 192, 152, 1) 64%,
+    rgba(54, 177, 104, 1) 87%,
+    rgba(90, 156, 108, 1) 100%
   );
 
   &:hover {
@@ -220,7 +225,8 @@ export const AddBtn = styled.button`
 export const ModalText = styled.h5`
   margin: 7px 2px;
   font-size: 20px;
-  color: white;
+  /* color: white; */
+  color: black;
   font-weight: 500;
   text-decoration: none;
   text-align: center;

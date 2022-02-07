@@ -16,19 +16,12 @@ export const StyledDotLoader = styled(DotLoader)`
 
 export const StyledAddIcon = styled(AddIcon)`
   cursor: pointer;
-  border: none;
   border-radius: 5px;
   box-shadow: #6c584c;
   font-size: large;
-  background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 1) 35%,
-    rgba(149, 196, 132, 1) 58%
-  );
-  background-color: #6c584c;
 
   &:hover {
-    filter: brightness(1.03);
+    font-size: 30px;
   }
 `;
 
@@ -44,7 +37,7 @@ export const StyledCompleteHabit = styled(DoneIcon)`
 export const StyledDeleteHabit = styled(DeleteForeverIcon)`
   cursor: pointer;
   font-size: large;
-  color: #ee2424;
+  /* color: #ee2424; */
 `;
 
 // Card stylings
@@ -64,6 +57,7 @@ export const BodyText = styled.p`
     sans-serif monospace;
   text-align: left;
   font-size: 1rem;
+  padding: 0;
 `;
 
 export const StrikeBodyText = styled.p`
@@ -76,15 +70,38 @@ export const StrikeBodyText = styled.p`
 `;
 
 export const HeaderText = styled.h3`
-  font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif monospace;
-  text-transform: uppercase;
   font-size: large;
   letter-spacing: 0.01em;
+  font-weight: 600;
+  color: black;
+  border-radius: 5px;
 `;
 
 export const IconWrapper = styled.div`
   text-align: center;
   font-size: 1rem;
+`;
+
+export const StyledTable = styled(Table)`
+  background: transparent;
+  border: 0.5px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 130px;
+  background: rgb(243, 255, 241);
+  background: linear-gradient(
+    0deg,
+    rgba(243, 255, 241, 0.1783088235294118) 0%,
+    rgba(243, 255, 241, 1) 99%
+  );
+  box-shadow: 0px 0.7px 1.4px -7px rgba(0, 0, 0, 0.034),
+    0.1px 1.6px 3.4px -7px rgba(0, 0, 0, 0.065),
+    0.1px 2.9px 6.4px -7px rgba(0, 0, 0, 0.094),
+    0.2px 5px 11.4px -7px rgba(0, 0, 0, 0.124),
+    0.4px 9px 21.3px -7px rgba(0, 0, 0, 0.159),
+    1px 20px 51px -7px rgba(0, 0, 0, 0.23);
+
+  @media (max-width: 760px) {
+    margin-top: 170px;
+  }
 `;

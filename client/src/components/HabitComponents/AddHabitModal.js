@@ -79,7 +79,7 @@ const AddHabitModal = ({ modal, handleCloseModal }) => {
                 <Input
                   type="text"
                   name="journal"
-                  placeholder="Journal"
+                  placeholder="Goal"
                   value={newHabit.journal}
                   onChange={handleChange}
                 />

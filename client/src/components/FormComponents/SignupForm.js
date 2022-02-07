@@ -58,7 +58,7 @@ const SignupForm = () => {
     <FormWrapper>
       {data ? (
         <MutedText>
-          <DotLoader color={"#adc178"} loading={data} size={70} />
+          <DotLoader color={"#68c098"} loading={data} size={70} />
         </MutedText>
       ) : (
         <FormContainer onSubmit={handleFormSubmit}>
