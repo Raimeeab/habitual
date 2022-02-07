@@ -16,10 +16,11 @@ import Home from "./components/pages/Home";
 import Habits from "./components/pages/Habits";
 import AccountBox from "./components/pages/AccountForm";
 
+
 // Construct main GraphQl API endpoint
 const httpLink = createHttpLink({
     uri: "/graphql",
-  // uri: "http://localhost:3001/graphql",
+  // uri: "http://localhost:3001/graphql", 
 });
 
 // Contrust request middleware 
@@ -50,9 +51,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/habits" element={<Habits />} />
           <Route path="/login" element={<AccountBox />} />
+          <Route path="/habits" element={<Habits />} />
         </Routes>
       </Router>
     </ApolloProvider >

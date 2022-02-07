@@ -21,6 +21,13 @@ export const TextContainer = styled.div`
   z-index: 10px;
 `;
 
+// export const HeroBackground = styled.div`
+
+// z-index: -3;
+// background: rgb(82,177,120);
+// background: radial-gradient(circle, rgba(82,177,120,1) 0%, rgba(184,244,175,1) 47%, rgba(177,219,114,1) 100%);
+// `
+
 export const ContentWrapper = styled.div`
   display: flex; 
   flex-direction: row;

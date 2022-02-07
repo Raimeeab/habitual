@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_HABIT } from "../../utils/mutations";
+import { QUERY_USER } from "../../utils/queries";
 import { Modal } from "@mui/material";
 import { Marginer } from "../../utils/Marginer";
 import {
@@ -15,50 +15,35 @@ import {
 } from "../styles/Form.styled";
 
 const AddHabitModal = ({ modal, handleCloseModal }) => {
-
-  const navigate = useNavigate(); 
-
   const [newHabit, setNewHabit] = useState({
-    name: "", 
-    frequency: "", 
+    name: "",
+    frequency: "",
     journal: "",
-  }); 
+  });
 
   const handleChange = (e) => {
-    const {name, value} = e.target; 
+    const { name, value } = e.target;
 
     setNewHabit({
-      ...newHabit, 
-      [name]: value
+      ...newHabit,
+      [name]: value,
     });
   };
 
-  const [addHabit, {error}] = useMutation(ADD_HABIT, {
-    update(proxy, result) {
-
-      const data = proxy.readQuery({
-        query: ADD_HABIT
-      });
-      data.addHabit = [result.data.addHabit, ...data.addHabit]
-      proxy.writeQuery({query: ADD_HABIT, data })
-      console.log("data.userById", data.addHabit)
-      setNewHabit({
-        name: "", 
-        frequency: "", 
-        journal: ""
-      });
-    }
-  }
-  ); 
+  const [addHabit, { error }] = useMutation(ADD_HABIT, {
+    refetchQueries: [
+      QUERY_USER, // DocumentNode object parsed with gql
+    ],
+  });
 
   const handleModalSubmit = async (e) => {
     e.preventDefault();
-    addHabit({variables: {
-      ...newHabit
-    }})
-
-    window.location.assign("/habits"); 
-    navigate("/habits");
+    await addHabit({
+      variables: {
+        ...newHabit,
+      },
+    });
+    handleCloseModal();
   };
 
   return (

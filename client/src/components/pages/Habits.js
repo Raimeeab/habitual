@@ -49,7 +49,7 @@ const Habits = () => {
           <StyledCard
             className="root"
             variant="outlined"
-            style={{ marginTop: 35 }}
+            style={{ marginTop: 35 , background: "tr"}}
           >
             <CardContent disabled sx={{backgroundColor:"transparent"}}>
               <Table disabled sx={{ minWidth: 200, backgroundColor:"transparent" }} aria-label="simple table">

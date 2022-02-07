@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgGif from "../../assets/background.gif"
+import bgGif from "../../assets/background.gif";
 import LoginForm from "../FormComponents/LoginForm";
 import SignupForm from "../FormComponents/SignupForm";
 import { AccountContext } from "../FormComponents/accountContext";
@@ -48,7 +48,7 @@ const AccountBox = (props) => {
 
     setTimeout(() => {
       setExpanded(false);
-    }, expandingTransition * 1000 - 1500);
+    }, expandingTransition.duration * 1000 - 1500);
   };
 
   const switchToSignup = () => {
@@ -69,44 +69,43 @@ const AccountBox = (props) => {
 
   return (
     <>
-    
-    <AccountContext.Provider value={contextValue}>
-    <BackgroundGif src={bgGif}>
-    {/* <source src={bgGif} type="video/mp4" /> */}
-</BackgroundGif>
-      <BoxWrapper>
-        <BoxContainer>
-          <TopContainer>
-            {/* the animation will run the variants depending on the state */}
-            <BackDrop
-              initial={false}
-              animate={isExpanded ? "expanded" : "collapsed"}
-              variants={backdropVariants}
-              transition={expandingTransition}
-            />
-            {active === "signin" && (
-              <HeaderContainer>
-                <HeaderText>Welcome</HeaderText>
-                <HeaderText>Back!</HeaderText>
-                <SmallText>Please sign-in to continue</SmallText>
-              </HeaderContainer>
-            )}
-            {active === "signup" && (
-              <HeaderContainer>
-                <HeaderText>Create</HeaderText>
-                <HeaderText>Account</HeaderText>
-                <SmallText>Please sign-up to continue</SmallText>
-              </HeaderContainer>
-            )}
-          </TopContainer>
-          <InnerContainer>
-            {" "}
-            {active === "signin" && <LoginForm />}
-            {active === "signup" && <SignupForm />}
-          </InnerContainer>
-        </BoxContainer>
-      </BoxWrapper>
-    </AccountContext.Provider>
+      <AccountContext.Provider value={contextValue}>
+        <BackgroundGif src={bgGif}>
+          {/* <source src={bgGif} type="video/mp4" /> */}
+        </BackgroundGif>
+        <BoxWrapper>
+          <BoxContainer>
+            <TopContainer>
+              {/* the animation will run the variants depending on the state */}
+              <BackDrop
+                initial={false}
+                animate={isExpanded ? "expanded" : "collapsed"}
+                variants={backdropVariants}
+                transition={expandingTransition}
+              />
+              {active === "signin" && (
+                <HeaderContainer>
+                  <HeaderText>Welcome</HeaderText>
+                  <HeaderText>Back!</HeaderText>
+                  <SmallText>Please sign-in to continue</SmallText>
+                </HeaderContainer>
+              )}
+              {active === "signup" && (
+                <HeaderContainer>
+                  <HeaderText>Create</HeaderText>
+                  <HeaderText>Account</HeaderText>
+                  <SmallText>Please sign-up to continue</SmallText>
+                </HeaderContainer>
+              )}
+            </TopContainer>
+            <InnerContainer>
+              {" "}
+              {active === "signin" && <LoginForm />}
+              {active === "signup" && <SignupForm />}
+            </InnerContainer>
+          </BoxContainer>
+        </BoxWrapper>
+      </AccountContext.Provider>
     </>
   );
 };

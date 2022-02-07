@@ -32,7 +32,6 @@ export const StyledAddIcon = styled(AddIcon)`
   }
 `;
 
-
 export const StyledContainer = styled(Container)`
   background-color: transparent;
 `;
@@ -50,12 +49,6 @@ export const StyledDeleteHabit = styled(DeleteForeverIcon)`
 
 // Card stylings
 export const StyledCard = styled(Card)`
-  background: rgb(247, 247, 247);
-  background: radial-gradient(
-    circle,
-    rgba(247, 247, 247, 0) 11%,
-    rgba(255, 255, 255, 0.052258403361344574) 100%
-  );
   box-shadow: 11.9px 11.9px 5.3px rgba(0, 0, 0, 0.008),
     26.5px 26.5px 17.9px rgba(0, 0, 0, 0.023),
     100px 100px 80px rgba(0, 0, 0, 0.07);
@@ -71,6 +64,15 @@ export const BodyText = styled.p`
     sans-serif monospace;
   text-align: left;
   font-size: 1rem;
+`;
+
+export const StrikeBodyText = styled.p`
+  font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif monospace;
+  text-align: left;
+  font-size: 1rem;
+  text-decoration: line-through;
 `;
 
 export const HeaderText = styled.h3`
