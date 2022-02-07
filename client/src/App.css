@@ -1,7 +1,6 @@
 :root {
   --highlight-colour: #68c098;
   --text-colour: #6c584c;
-  /* f0ead2 */
   --background-colour: white;
   --secondary-text: #a98467;
 }
@@ -23,8 +22,6 @@ body {
   font-family: "Titillium Web", "Roboto Mono", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif monospace;
-  /* background: rgb(216,226,204);
-background: radial-gradient(circle, rgba(216,226,204,1) 0%, rgba(255,255,255,1) 100%); */
 }
 
 a {

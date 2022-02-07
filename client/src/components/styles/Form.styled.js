@@ -12,6 +12,7 @@ export const BoxWrapper = styled.div`
   display: flex;
   flex-direction: center;
   justify-content: center;
+  margin-top: 60px;
 `;
 
 export const BoxContainer = styled.div`
@@ -21,7 +22,12 @@ export const BoxContainer = styled.div`
   flex-direction: column;
   border-radius: 19px;
   background-color: #fffff2;
-  box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
+  box-shadow: 0px 0.7px 1.4px -7px rgba(0, 0, 0, 0.034),
+    0.1px 1.6px 3.4px -7px rgba(0, 0, 0, 0.065),
+    0.1px 2.9px 6.4px -7px rgba(0, 0, 0, 0.094),
+    0.2px 5px 11.4px -7px rgba(0, 0, 0, 0.124),
+    0.4px 9px 21.3px -7px rgba(0, 0, 0, 0.159),
+    1px 20px 51px -7px rgba(0, 0, 0, 0.23);
   position: relative;
   overflow: hidden;
 `;
@@ -193,6 +199,10 @@ export const ModalWrapper = styled.div`
     rgba(243, 255, 241, 1) 99%
   );
   /* box-align: center; */
+
+  @media (max-width:460px) {
+    right: -31%;
+  }
 
   &:focus {
     outline: none;

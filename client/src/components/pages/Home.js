@@ -1,20 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 import logo from "../../assets/whiteLogo.png";
 import bgImage from "../../assets/background-image.png";
 
-import {
-  HeroLogo,
-  BackgroundImg,
-  HeroContainer,
-} from "../styles/Home.styled";
+import { HeroLogo, BackgroundImg, HeroContainer } from "../styles/Home.styled";
 
 const Home = () => {
   let navigate = useNavigate();
   function getStarted() {
-    navigate('/login')
+    navigate("/login");
   }
- 
+
   return (
     <>
       <HeroContainer>

@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   .navbar {
-   background-color: none;
+    background-color: none;
   }
 
   .title {
@@ -17,7 +17,7 @@ const Styles = styled.div`
     font-weight: bolder;
     color: #68c098;
     justify-content: flex-end;
-    text-shadow: .5px .6px #6c584c;
+    text-shadow: 0.5px 0.6px #6c584c;
   }
 
   .navbarLinks {
@@ -27,7 +27,7 @@ const Styles = styled.div`
 
     &:hover {
       transition: all 0.5 ease-in-out;
-      border-bottom: 3px solid #68c098
+      border-bottom: 3px solid #68c098;
     }
   }
 `;

@@ -1,18 +1,15 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { COMPLETE_HABIT, REMOVE_HABIT } from "../../utils/mutations";
+import { QUERY_USER } from "../../utils/queries";
 import { isSameDay } from "date-fns";
 import { TableBody, TableRow, TableCell } from "@mui/material";
 import {
-  BodyText,
-  StrikeBodyText,
   StyledTableBody,
   StyledCompleteHabit,
   StyledDeleteHabit,
   IconWrapper,
-  HeaderText,
 } from "../styles/Habits.styled";
-import { QUERY_USER } from "../../utils/queries";
 
 const ViewHabits = ({ habits }) => {
   const [updateHabit] = useMutation(COMPLETE_HABIT, {
@@ -64,7 +61,15 @@ const ViewHabits = ({ habits }) => {
     return (
       <TableBody>
         <TableRow>
-          <TableCell size="sm" style={{ width: 200, fontSize:"1rem", fontWeight: "500", border: "none" }}>
+          <TableCell
+            size="sm"
+            style={{
+              width: 200,
+              fontSize: "1rem",
+              fontWeight: "500",
+              border: "none",
+            }}
+          >
             No habits added yet
           </TableCell>
         </TableRow>
@@ -79,15 +84,15 @@ const ViewHabits = ({ habits }) => {
             key={habit._id}
             sx={{
               "&:last-child td, &:last-child th": { border: 0 },
-              "background-color": habitCompletedToday(habit) ? "#68c098" : "none",
+              "background-color": habitCompletedToday(habit)
+                ? "#68c098"
+                : "none",
             }}
           >
             <TableCell align="center" component="th" scope="habit">
-            {habit.name}
+              {habit.name}
             </TableCell>
-            <TableCell align="center">
-                {habit.frequency}
-            </TableCell>
+            <TableCell align="center">{habit.frequency}</TableCell>
             <TableCell align="center">
               <IconWrapper>
                 <StyledCompleteHabit

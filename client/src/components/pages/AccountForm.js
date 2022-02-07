@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import bgGif from "../../assets/background.gif";
 import LoginForm from "../FormComponents/LoginForm";
 import SignupForm from "../FormComponents/SignupForm";
 import { AccountContext } from "../FormComponents/accountContext";

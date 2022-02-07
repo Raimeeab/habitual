@@ -1,39 +1,15 @@
 import styled from "styled-components";
-import Button from "@mui/material/Button";
-
-import colouredLogo from "../../assets/logo.png"
-
-export const TextContainer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-  /* box-shadow: 0 0 1px rgba(15, 15, 15, 0.28); */
-  /* Full screen - navbar */
-  /* background: rgb(173, 193, 120);
-  background: linear-gradient(
-    50deg,
-    rgba(173, 193, 120, 0.3) 0%,
-    rgba(255, 255, 255, 0.3) 58%
-  ); */
-  margin: 0;
-  z-index: 10px;
-  border-radius: 19px;
-  background-size: contain;
-  margin: 0 10px;
-  z-index: 10px;
-`;
 
 export const ContentWrapper = styled.div`
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media (max-width:760px){
+  @media (max-width: 760px) {
     flex-direction: column;
   }
-`; 
-
+`;
 
 export const HeroContainer = styled.div`
   display: flex;
@@ -43,7 +19,7 @@ export const HeroContainer = styled.div`
 `;
 
 export const BackgroundImg = styled.img`
- position: fixed;
+  position: fixed;
   background-image: url(${(props) => props.img});
   top: 0;
   right: 0;
@@ -51,11 +27,10 @@ export const BackgroundImg = styled.img`
   left: 0;
   z-index: -1;
   width: 100%;
- height: 100%;
+  height: 100%;
   background-position: center;
   object-fit: cover;
-
-`
+`;
 
 export const HeroLogo = styled.img`
   justify-content: center;
@@ -67,14 +42,17 @@ export const HeroLogo = styled.img`
   background-size: cover;
 
   &:hover {
-    cursor: pointer; 
+    cursor: pointer;
     filter: brightness(1.03);
     opacity: 100%;
   }
 
-  @media (max-width:760px){
+  @media (min-width: 1000px) {
+    width: 60%;
+  }
+
+  @media (max-width: 760px) {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
   }
 `;
-

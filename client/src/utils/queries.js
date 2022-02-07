@@ -18,18 +18,3 @@ export const QUERY_USER = gql`
     }
   }
 `;
-
-// export const QUERY_HABITS = gql`
-//   query user($username: String!) {
-//     user(username: $username) {
-//       habits {
-//         name
-//         frequency
-//         journal
-//         completedHabit {
-//           completedAt
-//         }
-//       }
-//     }
-//   }
-// `;

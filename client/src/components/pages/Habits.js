@@ -4,12 +4,10 @@ import { QUERY_USER } from "../../utils/queries";
 import ViewHabits from "../HabitComponents/ViewHabits";
 import AddHabitModal from "../HabitComponents/AddHabitModal";
 import bgImage from "../../assets/background-image.png";
-import { Marginer } from "../../utils/Marginer";
 
 import { BackgroundImg } from "../styles/Home.styled";
 import {
   CardContent,
-  Table,
   TableHead,
   TableBody,
   TableRow,
@@ -20,10 +18,8 @@ import {
   StyledDotLoader,
   StyledAddIcon,
   StyledCard,
-  StyledTableRow,
   HeaderText,
   StyledTable,
-  TableCellHeaders
 } from "../styles/Habits.styled";
 // import DatePicker from "../HabitComponents/DatePicker";
 
