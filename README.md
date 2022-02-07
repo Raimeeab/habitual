@@ -44,23 +44,25 @@ Link to the [app]()
 
 1. Git clone this repository onto your local machine and navigate to the file on your terminal. *This can also be done by opening the file on Visual Studios and running it through the intergated terminal.*
 
-![git-clone]()
+![git-clone](./client/src/assets//demos/git-clone.gif)
 
-2. Set up an env file with 
+2. Set up an env file with with a JWT secret token in the server folder.
 
-3. In the root directory, run `npm install` & `npm run seed` to download all the required dependencies and seeds
+![env-file](./client/src/assets/demos/env.png)
 
-![install]()
+3. In the root directory, run `npm install` & `npm run seed` to download all the required dependencies and seeds.
+
+![install](./client/src/assets//demos/git-install.gif)
 
 4. To start the application, run:
 
     - `npm run develop`
 
-![start]()
+![start](/client/src/assets/demos/start.gif)
 
-5. To test mutations head to ``
+5. To test mutations head to `http://localhost:3001/graphql//`
 
-![graphql-demo]()
+![graphql-demo](/client/src/assets/demos/gql-demo.gif)
 
 <a name="usage"></a>
 ## 🖥 Usage 

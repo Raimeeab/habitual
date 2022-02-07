@@ -2,8 +2,7 @@ const jwt = require("jsonwebtoken");
 
 // Set token secret and expiration date
 const secret = process.env.JWTSECRET;
-// TODO: Change expiration to 2h before deployment
-const expiration = "9h";
+const expiration = "3h";
 
 module.exports = {
   // Function for authenticated routes
