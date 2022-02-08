@@ -24,7 +24,6 @@ const ViewHabits = ({ habits }) => {
         },
       });
 
-      console.log(date);
     } catch (error) {
       console.error(error);
     }
@@ -40,7 +39,6 @@ const ViewHabits = ({ habits }) => {
       const completionDate = new Date(+completion.completedAt);
       return isSameDay(today, completionDate);
     });
-    console.log("habit", habit._id, completedToday);
     return completedToday;
   };
 
